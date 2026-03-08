@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚽ CanchaScore — Full Analysis | Colombia Futbol 5 App 2026</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface-2: #1c2128;
+            --surface-3: #21262d;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-muted: #8b949e;
+            --text-bright: #f0f6fc;
+            --accent: #58a6ff;
+            --red: #f85149;
+            --orange: #d29922;
+            --green: #3fb950;
+            --purple: #bc8cff;
+            --pink: #f778ba;
+            --yellow: #e3b341;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+        /* Header */
+        header { text-align: center; padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+        header h1 { font-size: 2.4rem; color: var(--text-bright); margin-bottom: 0.25rem; }
+        header .subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 750px; margin: 0.5rem auto 0; }
+        header .meta { margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Score Hero */
+        .score-hero { display: flex; align-items: center; gap: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
+        .score-hero-ring { width: 120px; height: 120px; position: relative; flex-shrink: 0; }
+        .score-hero-ring svg { transform: rotate(-90deg); }
+        .score-hero-ring .score-val { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; font-weight: 800; color: var(--text-bright); }
+        .score-hero-ring .score-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, calc(-50% + 18px)); font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .score-hero-info h2 { font-size: 1.6rem; color: var(--text-bright); }
+        .score-hero-info .tagline { color: var(--text-muted); margin-top: 0.25rem; }
+        .score-hero-info .tags { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .tag-green { background: rgba(63,185,80,0.15); color: var(--green); }
+        .tag-orange { background: rgba(210,153,34,0.15); color: var(--orange); }
+        .tag-red { background: rgba(248,81,73,0.15); color: var(--red); }
+        .tag-purple { background: rgba(188,140,255,0.15); color: var(--purple); }
+        .tag-blue { background: rgba(88,166,255,0.15); color: var(--accent); }
+
+        /* Tabs */
+        .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .tab-btn { padding: 0.75rem 1.25rem; background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.9rem; font-family: inherit; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--text); }
+        .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Sections */
+        .section { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.25rem; }
+        .section-title { font-size: 1.05rem; color: var(--text-bright); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .section p { margin-bottom: 0.5rem; }
+        .section ul { list-style: none; padding: 0; }
+        .section ul li { margin-bottom: 0.5rem; }
+        .section ul li::before { content: "→ "; color: var(--accent); }
+        .section ul li.risk::before { content: "⚠ "; color: var(--red); }
+        .section ul li.opp::before { content: "💰 "; }
+        .section ul li.check::before { content: "✅ "; }
+        .section ul li.star::before { content: "⭐ "; }
+
+        /* Financials */
+        .fin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 1rem 0; }
+        .fin-item { background: var(--surface-2); border-radius: 8px; padding: 1rem; text-align: center; }
+        .fin-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .fin-value { font-size: 1.3rem; font-weight: 700; color: var(--text-bright); margin-top: 0.25rem; }
+        .fin-note { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+        /* Verdict */
+        .verdict { background: var(--surface-2); border-left: 3px solid var(--accent); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 1rem; font-style: italic; }
+        .verdict-danger { border-left-color: var(--red); }
+        .verdict-green { border-left-color: var(--green); }
+
+        /* Timeline / Roadmap */
+        .roadmap { position: relative; padding-left: 2rem; }
+        .roadmap::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+        .roadmap-phase { position: relative; margin-bottom: 1.5rem; }
+        .roadmap-phase::before { content: ''; position: absolute; left: -2rem; top: 4px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); z-index: 1; }
+        .roadmap-phase.done::before { background: var(--green); border-color: var(--green); }
+        .phase-title { font-size: 0.95rem; color: var(--text-bright); font-weight: 600; }
+        .phase-time { font-size: 0.8rem; color: var(--text-muted); }
+        .phase-details { font-size: 0.9rem; margin-top: 0.25rem; }
+
+        /* Comparison mini-table */
+        .comp-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
+        .comp-table th { text-align: left; padding: 0.5rem 0.75rem; color: var(--text-muted); font-weight: 500; border-bottom: 1px solid var(--border); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .comp-table td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+        .comp-table tr:hover td { background: var(--surface-2); }
+
+        /* Two-col layout */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+        /* Persona cards */
+        .persona { background: var(--surface-2); border-radius: 10px; padding: 1.25rem; }
+        .persona-name { font-size: 1rem; color: var(--text-bright); font-weight: 600; }
+        .persona-desc { font-size: 0.85rem; color: var(--text-muted); margin: 0.25rem 0 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            header h1 { font-size: 1.6rem; }
+            .score-hero { flex-direction: column; text-align: center; }
+            .two-col { grid-template-columns: 1fr; }
+            .tab-btn { padding: 0.6rem 0.75rem; font-size: 0.8rem; }
+            .score-hero-info .tags { justify-content: center; }
+        }
+
+        .disclaimer { text-align: center; color: var(--text-muted); font-size: 0.75rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>⚽ CanchaScore — Full Deep Dive</h1>
+        <p class="subtitle">A comprehensive VC-grade analysis of a casual futbol 5 social + venue management platform for the Colombian market. Player profiles, peer skill validation, court bookings, and B2B venue marketing — all in one stack.</p>
+        <p class="meta">Analysis Date: March 2026 &nbsp;|&nbsp; COP/USD: ~3,795 &nbsp;|&nbsp; Analyst: Donna Paulsen &nbsp;|&nbsp; <a href="/" style="color:var(--accent);text-decoration:none;">← Back to Hub</a></p>
+    </header>
+
+    <!-- Score Hero -->
+    <div class="score-hero">
+        <div class="score-hero-ring">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--surface-2)" stroke-width="6"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--green)" stroke-width="6" stroke-dasharray="326.7" stroke-dashoffset="75.1" stroke-linecap="round"/>
+            </svg>
+            <span class="score-val">71</span>
+            <span class="score-label">Brutality</span>
+        </div>
+        <div class="score-hero-info">
+            <h2>CanchaScore</h2>
+            <p class="tagline">The social layer for casual futbol — player profiles, skill validation, match tracking + a B2B SaaS backend for court operators.</p>
+            <div class="tags">
+                <span class="tag tag-green">Two-Sided Market</span>
+                <span class="tag tag-blue">Social + SaaS Hybrid</span>
+                <span class="tag tag-purple">High Engagement Loop</span>
+                <span class="tag tag-orange">Network Effects</span>
+                <span class="tag tag-green">Low Capital Start</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('concept')">💡 Concept</button>
+        <button class="tab-btn" onclick="showTab('market')">🎯 Market</button>
+        <button class="tab-btn" onclick="showTab('risk')">💀 Risk</button>
+        <button class="tab-btn" onclick="showTab('financial')">💰 Financial</button>
+        <button class="tab-btn" onclick="showTab('competitive')">⚔️ Competitive</button>
+        <button class="tab-btn" onclick="showTab('technical')">🛠 Technical</button>
+        <button class="tab-btn" onclick="showTab('roadmap')">🗺 Roadmap</button>
+        <button class="tab-btn" onclick="showTab('verdict')">⚖️ Verdict</button>
+    </div>
+
+    <!-- ==================== CONCEPT ==================== -->
+    <div id="concept" class="tab-content active">
+        <div class="section">
+            <h3 class="section-title">🧠 The Core Thesis</h3>
+            <p>Colombia is a nation that <em>breathes</em> futbol. Millions play recreationally every week, primarily futbol 5 on synthetic courts. Yet there is <strong>zero digital infrastructure</strong> for the casual player. No stats. No reputation. No way to find balanced games. No way for court owners to understand who their customers actually are.</p>
+            <p style="margin-top:0.75rem;">CanchaScore is a <strong>two-sided platform</strong>:</p>
+            <ul>
+                <li><strong>Side A (B2C — Players):</strong> Match logging, personal stats & skill radar, peer endorsements (LinkedIn-style for futbol skills), team formation, and court discovery/booking</li>
+                <li><strong>Side B (B2B — Court Operators):</strong> Booking management, payment processing, customer CRM, targeted promotions, and analytics dashboard</li>
+            </ul>
+            <p style="margin-top:0.75rem;">The magic is the <strong>data flywheel</strong>: players create profiles and log matches → courts get rich customer data → courts pay for marketing tools → players get better match experiences → more players join. The player side is free. The court side pays.</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">👥 User Personas</h3>
+            <div class="two-col">
+                <div class="persona">
+                    <div class="persona-name">🏃 "El Parcero" — The Weekly Player</div>
+                    <div class="persona-desc">Male, 22-40, plays 1-3x/week, earns 2-6M COP/month</div>
+                    <ul>
+                        <li class="star">Wants to track his goals and see his "FIFA-style" skill card</li>
+                        <li class="star">Frustrated when teams are unbalanced — always one team destroying the other</li>
+                        <li class="star">Shares stats on Instagram stories and WhatsApp groups</li>
+                        <li class="star">Would love a "player rating" he can brag about at work</li>
+                    </ul>
+                </div>
+                <div class="persona">
+                    <div class="persona-name">🏟 "El Canchero" — The Court Owner</div>
+                    <div class="persona-desc">35-55, owns 2-6 synthetic courts, manages via WhatsApp + notebook</div>
+                    <ul>
+                        <li class="star">Has NO IDEA who 70% of his customers actually are beyond a WhatsApp name</li>
+                        <li class="star">Dead hours (10am-4pm weekdays) kill profitability — needs to fill them</li>
+                        <li class="star">Loses bookings to no-shows (20-30%) and has no deposit system</li>
+                        <li class="star">Would pay for a tool that fills empty slots and reduces no-shows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">⚙️ Feature Stack</h3>
+            <div class="two-col">
+                <div>
+                    <h4 style="color:var(--accent);margin-bottom:0.5rem;font-size:0.9rem;">PLAYER APP (Free)</h4>
+                    <ul>
+                        <li><strong>Player Profile:</strong> FIFA-style skill radar (speed, passing, shooting, defense, stamina, vision) — peer-endorsed</li>
+                        <li><strong>Match Logger:</strong> Quick post-match entry — who played, score, MVP votes, skill endorsements</li>
+                        <li><strong>Reputation Score:</strong> Aggregated from peer votes + match history. "4.7 ⭐ — 128 matches played"</li>
+                        <li><strong>Team Builder:</strong> AI-balanced teams based on skill ratings — no more stacked squads</li>
+                        <li><strong>Court Discovery:</strong> Find nearby courts, see availability, book & pay</li>
+                        <li><strong>Leaderboards:</strong> Barrio, city, and national rankings — weekly, monthly, all-time</li>
+                        <li><strong>Social Feed:</strong> Match highlights, milestone badges, trash talk</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:var(--green);margin-bottom:0.5rem;font-size:0.9rem;">COURT DASHBOARD (Paid SaaS)</h4>
+                    <ul>
+                        <li><strong>Booking Engine:</strong> Real-time calendar, online reservations, automated confirmations</li>
+                        <li><strong>Payment Processing:</strong> Online payments via PSE/Nequi/Daviplata + deposit system to kill no-shows</li>
+                        <li><strong>Customer CRM:</strong> Every player who books has a profile — frequency, spend, preferred times, skill level</li>
+                        <li><strong>Smart Promotions:</strong> "Send 20% off to all players who haven't booked in 30 days" or "Fill Tuesday 2pm with intermediate players"</li>
+                        <li><strong>Analytics:</strong> Occupancy rates, revenue per court-hour, peak/dead hour analysis</li>
+                        <li><strong>Tournament Engine:</strong> Create and manage mini-tournaments — brackets, schedules, results</li>
+                        <li><strong>WhatsApp Integration:</strong> Auto-send confirmations and reminders via WhatsApp Business API</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">🔄 The Skill Endorsement System — The Secret Sauce</h3>
+            <p>This is what makes CanchaScore more than a booking app. Think <strong>"LinkedIn endorsements meet FIFA Ultimate Team"</strong>:</p>
+            <ul>
+                <li><strong>After every match</strong>, players vote on 2-3 skill categories for each participant: "Juan was 🔥 at passing today" or "Carlos, your defense was 🧱"</li>
+                <li><strong>Votes are weighted</strong> by the voter's own reputation — a 4.8-rated player's vote counts more than a 3.2's</li>
+                <li><strong>Skills decay over time</strong> if you stop playing — your rating reflects <em>current form</em>, not past glory</li>
+                <li><strong>Anti-gaming:</strong> You can only endorse people you actually played with (match-verified). No friends-boosting-friends without showing up</li>
+                <li><strong>The payoff:</strong> Courts can use aggregate skill data to organize balanced pickup games, leagues by tier, and targeted promotions ("Looking for a goalkeeper rated 4.0+? We have a Tuesday league for you")</li>
+            </ul>
+            <div class="verdict verdict-green">
+                <strong>Why this matters:</strong> The skill system creates an <em>identity</em> for casual players that doesn't exist anywhere else. It's the thing they'll screenshot and share. It's the retention loop. It's the reason they open the app even when they're not booking a court. And it's the data asset that makes the B2B side incredibly valuable.
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MARKET ==================== -->
+    <div id="market" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">🇨🇴 The Colombian Futbol 5 Landscape</h3>
+            <p>Let's ground this in real numbers:</p>
+            <div class="fin-grid">
+                <div class="fin-item">
+                    <div class="fin-label">Estimated Courts</div>
+                    <div class="fin-value">5,000-8,000</div>
+                    <div class="fin-note">nationwide (private synthetic)</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Bogotá Alone</div>
+                    <div class="fin-value">1,500+</div>
+                    <div class="fin-note">private + 100 public synthetic</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Avg. Court Revenue</div>
+                    <div class="fin-value">$800-2,000/mo</div>
+                    <div class="fin-note">per court, at ~60% occupancy</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Weekly Players</div>
+                    <div class="fin-value">2-4M</div>
+                    <div class="fin-note">estimated recreational</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Avg. Hourly Rate</div>
+                    <div class="fin-value">80-200K COP</div>
+                    <div class="fin-note">$21-53 USD per hour</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Market Size (courts)</div>
+                    <div class="fin-value">$48-192M/yr</div>
+                    <div class="fin-note">total court rental revenue</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">😤 The Pain Points — Both Sides</h3>
+            <div class="two-col">
+                <div>
+                    <h4 style="color:var(--red);margin-bottom:0.5rem;font-size:0.9rem;">PLAYERS' PAIN</h4>
+                    <ul>
+                        <li class="risk"><strong>Organizing games is a WhatsApp nightmare.</strong> "¿Quién va el jueves?" → 47 messages, 3 people drop out at the last minute, teams are unbalanced</li>
+                        <li class="risk"><strong>No reputation portability.</strong> You're amazing at your regular court, but when you show up to a pickup game elsewhere, you're a nobody</li>
+                        <li class="risk"><strong>Finding courts is word-of-mouth only.</strong> Google Maps listings are incomplete, prices are outdated, availability is a phone call</li>
+                        <li class="risk"><strong>Payment splitting is chaos.</strong> "Cada uno pone 20 mil" → someone always owes, someone always overpays, the organizer subsidizes flakers</li>
+                        <li class="risk"><strong>No record of anything.</strong> You've played 500 matches and have zero to show for it. Where's your highlight reel? Your stats? Your legacy?</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color:var(--red);margin-bottom:0.5rem;font-size:0.9rem;">COURT OWNERS' PAIN</h4>
+                    <ul>
+                        <li class="risk"><strong>Dead hours bleed money.</strong> Courts sit empty 30-40% of the time, especially weekday mornings/afternoons. Fixed costs don't stop</li>
+                        <li class="risk"><strong>No-shows cost 20-30% of bookings.</strong> Zero deposit culture means people just... don't show up. And there's no penalty</li>
+                        <li class="risk"><strong>Customer retention is blind.</strong> A group books for 6 months, then vanishes. No CRM, no re-engagement, no idea why they left</li>
+                        <li class="risk"><strong>Marketing is spray-and-pray.</strong> Instagram posts that nobody sees. No way to target "players who like Thursday night games"</li>
+                        <li class="risk"><strong>Cash handling is risky and opaque.</strong> Employees manage cash, skimming is common, reconciliation is a spreadsheet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📈 Why 2026 Is the Right Time</h3>
+            <ul>
+                <li><strong>Smartphone penetration hit 78%</strong> in Colombia (2025) — even blue-collar workers carry Android phones capable of running a modern app</li>
+                <li><strong>Digital payment adoption exploded:</strong> Nequi has 20M+ users, Daviplata 16M+. The "I only carry cash" excuse is dying fast</li>
+                <li><strong>iCancha and CanchaYa proved the booking demand exists</strong> but neither built the player social layer. They're directories, not platforms</li>
+                <li><strong>Colombia's futbol culture is intensifying:</strong> The 2026 World Cup (USA/Mexico/Canada) is months away — futbol engagement will peak</li>
+                <li><strong>Post-pandemic court construction boom:</strong> Hundreds of new courts opened 2022-2025, increasing competition and demand for marketing tools</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== RISK ==================== -->
+    <div id="risk" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">💀 Why CanchaScore Will Fail — The Brutally Honest Version</h3>
+            <p style="color:var(--red);font-weight:600;margin-bottom:1rem;">I'm going to be meaner than usual here, because this idea has a seductive quality that hides real pitfalls.</p>
+
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">1. The Cold Start Problem Is BRUTAL</h4>
+            <ul>
+                <li class="risk"><strong>Two-sided marketplace = chicken-and-egg from hell.</strong> Players won't come without courts. Courts won't pay without players. You need to solve both simultaneously</li>
+                <li class="risk"><strong>The skill system needs ~10 matches per player to be meaningful.</strong> That's 10 weeks of adoption before the "magic" kicks in. Most users churn by week 2</li>
+                <li class="risk"><strong>Empty leaderboards are depressing.</strong> If you launch in a barrio and only 15 people sign up, the social features feel dead. Social apps need critical mass or they're graveyards</li>
+            </ul>
+
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">2. WhatsApp Is the Real Competitor</h4>
+            <ul>
+                <li class="risk"><strong>You're not competing with other apps. You're competing with WhatsApp groups.</strong> Every piquera (weekly game) already has a WhatsApp group that works "well enough." Replacing entrenched habit loops is the hardest thing in consumer tech</li>
+                <li class="risk"><strong>"Yo le escribo al man de la cancha por WhatsApp y ya."</strong> That's your user talking. Convincing them to open a separate app to do what a text message already does? Good luck</li>
+            </ul>
+
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">3. The Vanity Metric Trap</h4>
+            <ul>
+                <li class="risk"><strong>Downloads ≠ Active Users ≠ Revenue.</strong> Sports social apps have notoriously high download-to-churn ratios. Strava (cycling/running) took 10 years and $100M+ to find product-market fit. You don't have that runway</li>
+                <li class="risk"><strong>The skill rating novelty wears off.</strong> People love creating their FIFA card the first time. By month 3, if the rating doesn't tangibly improve their experience (better games, invites), they stop caring</li>
+            </ul>
+
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">4. Court Owners Are Technophobic and Skeptical</h4>
+            <ul>
+                <li class="risk"><strong>The canchero doesn't trust technology.</strong> He's seen 5 "apps that will revolutionize your business" in the last 3 years. None survived</li>
+                <li class="risk"><strong>Payment processing takes a cut.</strong> If you add 3-5% for digital payments, the court owner sees that as money stolen from him — not efficiency gained</li>
+                <li class="risk"><strong>The sales cycle is in-person and slow.</strong> You can't sell to court owners via email or ads. You need to walk in, shake hands, and demonstrate. In every single court</li>
+            </ul>
+
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">5. Monetization Timing Is Tricky</h4>
+            <ul>
+                <li class="risk"><strong>You need 6-12 months of free growth before you can charge courts meaningfully.</strong> That's 6-12 months of expenses with near-zero revenue. Can you survive that?</li>
+                <li class="risk"><strong>Transaction fees are a race to the bottom.</strong> Once you start processing payments, you're competing with PSE, Nequi, and Mercado Pago's embedded payment solutions — all of which have better rates</li>
+            </ul>
+
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">6. Copycats</h4>
+            <ul>
+                <li class="risk"><strong>If it works, Rappi adds a "Rappi Canchas" feature in a sprint.</strong> They already have the user base, the payment infra, and the brand. Your moat has to be deeper than "we were first"</li>
+                <li class="risk"><strong>iCancha pivots.</strong> They already have court relationships. If they see your player social layer gaining traction, they bolt it on. They have a 5-year head start in court partnerships</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">🛡 Risk Mitigation — What Makes This Survivable</h3>
+            <ul>
+                <li class="check"><strong>The player data moat is real.</strong> If you accumulate 50K player profiles with 100+ matches each, that dataset is incredibly hard to replicate. iCancha can copy the UI; they can't copy the history</li>
+                <li class="check"><strong>Start hyper-local.</strong> Don't launch "in Colombia." Launch in one barrio of Bogotá. 5 courts, 200 players. Make it <em>dense</em> — make it feel alive. Then expand neighborhood by neighborhood</li>
+                <li class="check"><strong>WhatsApp is a channel, not a competitor.</strong> Use WhatsApp Business API as your notification layer. Don't fight it — ride it. The app is for profiles and stats; WhatsApp is for reminders and bookings</li>
+                <li class="check"><strong>The FIFA card is viral by design.</strong> People screenshot and share skill cards. It's built-in organic marketing. Every share is a mini-billboard</li>
+                <li class="check"><strong>Court owner pain is real and immediate.</strong> If you can prove even a 10% reduction in no-shows via deposits, the ROI sells itself</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== FINANCIAL ==================== -->
+    <div id="financial" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">💰 Revenue Model — The Full Stack</h3>
+            <p>CanchaScore has <strong>5 revenue streams</strong>, layered by maturity:</p>
+
+            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 1: Court SaaS Subscription (Primary)</h4>
+            <div class="fin-grid">
+                <div class="fin-item">
+                    <div class="fin-label">Basic Plan</div>
+                    <div class="fin-value">$25/mo</div>
+                    <div class="fin-note">~95K COP — booking + calendar</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Pro Plan</div>
+                    <div class="fin-value">$50/mo</div>
+                    <div class="fin-note">~190K COP — + CRM + promos</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Premium Plan</div>
+                    <div class="fin-value">$100/mo</div>
+                    <div class="fin-note">~380K COP — + analytics + tournaments</div>
+                </div>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Target: 100-200 paying courts at avg $40/mo = <strong>$4,000-8,000 MRR</strong></p>
+
+            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 2: Payment Processing Fees</h4>
+            <p>Process bookings and split payments through the app. Take 2-3% of each transaction.</p>
+            <div class="fin-grid">
+                <div class="fin-item">
+                    <div class="fin-label">Avg Booking Value</div>
+                    <div class="fin-value">$35</div>
+                    <div class="fin-note">~133K COP per hour</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Monthly Txns (target)</div>
+                    <div class="fin-value">5,000</div>
+                    <div class="fin-note">across all courts</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Revenue @ 2.5%</div>
+                    <div class="fin-value">$4,375/mo</div>
+                    <div class="fin-note">5,000 × $35 × 2.5%</div>
+                </div>
+            </div>
+
+            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 3: Promoted Listings & Ads</h4>
+            <p>Courts pay to appear first in search results, send push notifications to nearby players, or sponsor leaderboards.</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Estimated: <strong>$500-2,000/mo</strong> once player base hits 10K+</p>
+
+            <h4 style="color:var(--orange);margin:1rem 0 0.5rem;">Stream 4: Tournament Fees (Later)</h4>
+            <p>Organize branded tournaments. Charge entry fees, take 10-15% platform cut + court rental commission.</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Estimated: <strong>$500-1,500/mo</strong> at scale</p>
+
+            <h4 style="color:var(--orange);margin:1rem 0 0.5rem;">Stream 5: Data & Partnerships (Later)</h4>
+            <p>Aggregate player data for sports brands (Nike, Adidas, Gatorade), insurance companies (sports injury coverage), and sports equipment retailers. Anonymized, compliant, valuable.</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Estimated: <strong>$1,000-3,000/mo</strong> at 50K+ active players</p>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📊 Path to $5-10K/Month Net Profit</h3>
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Milestone</th>
+                        <th>Timeline</th>
+                        <th>Courts</th>
+                        <th>Players</th>
+                        <th>Monthly Revenue</th>
+                        <th>Monthly Costs</th>
+                        <th>Net</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:var(--text-bright)">Launch (beta)</td>
+                        <td>Month 1-3</td>
+                        <td>10 (free)</td>
+                        <td>500</td>
+                        <td style="color:var(--red)">$0</td>
+                        <td>$300</td>
+                        <td style="color:var(--red)">-$300</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">Traction</td>
+                        <td>Month 4-6</td>
+                        <td>30 (10 paid)</td>
+                        <td>2,000</td>
+                        <td>$400</td>
+                        <td>$500</td>
+                        <td style="color:var(--red)">-$100</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">Revenue</td>
+                        <td>Month 7-9</td>
+                        <td>60 (35 paid)</td>
+                        <td>5,000</td>
+                        <td>$2,500</td>
+                        <td>$800</td>
+                        <td style="color:var(--green)">+$1,700</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">Growth</td>
+                        <td>Month 10-12</td>
+                        <td>120 (80 paid)</td>
+                        <td>12,000</td>
+                        <td>$5,500</td>
+                        <td>$1,200</td>
+                        <td style="color:var(--green)">+$4,300</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">Target</td>
+                        <td>Month 13-18</td>
+                        <td>200 (150 paid)</td>
+                        <td>25,000</td>
+                        <td>$10,500</td>
+                        <td>$2,000</td>
+                        <td style="color:var(--green)">+$8,500</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="verdict">
+                <strong>Cost breakdown at scale:</strong> Hosting/infra: $400 | Payment gateway fees: $600 | WhatsApp API: $200 | Marketing: $500 | Misc: $300. No employees needed until 200+ courts — you can automate most of it. The margins improve dramatically because software scales linearly while court-owner revenue stacks.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">💱 COP/USD Reality Check</h3>
+            <ul>
+                <li>At 3,795 COP/USD, a court paying 190,000 COP/month ($50) is spending <strong>less than one day's booking revenue</strong>. Easy sell</li>
+                <li>Player-side is free, so no COP affordability issue on consumer side</li>
+                <li>Payment processing revenue in COP but your costs (hosting, APIs) are in USD — you benefit from peso stability or weakness</li>
+                <li>$10K USD/month = ~38M COP. That's a senior manager salary in Colombia. Very comfortable lifestyle target</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== COMPETITIVE ==================== -->
+    <div id="competitive" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">⚔️ Competitive Landscape</h3>
+            <table class="comp-table">
+                <thead>
+                    <tr>
+                        <th>Competitor</th>
+                        <th>What They Do</th>
+                        <th>Player Profiles</th>
+                        <th>Skill Rating</th>
+                        <th>Court SaaS</th>
+                        <th>Payments</th>
+                        <th>Threat Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:var(--text-bright)">iCancha</td>
+                        <td>Court booking marketplace</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--orange)">Basic</td>
+                        <td style="color:var(--green)">✅</td>
+                        <td><span class="tag tag-orange">Medium</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">CanchaYa</td>
+                        <td>Court directory (Bogotá)</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td><span class="tag tag-green">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">GoodRec</td>
+                        <td>Pickup games (US/EU)</td>
+                        <td style="color:var(--orange)">Basic</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--green)">✅</td>
+                        <td><span class="tag tag-green">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">Plei</td>
+                        <td>Pickup soccer (US)</td>
+                        <td style="color:var(--orange)">Basic</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--green)">✅</td>
+                        <td><span class="tag tag-green">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright)">WhatsApp</td>
+                        <td>Everything informal</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td style="color:var(--red)">❌</td>
+                        <td><span class="tag tag-red">Very High</span></td>
+                    </tr>
+                    <tr style="background:rgba(63,185,80,0.05);">
+                        <td style="color:var(--green);font-weight:700">CanchaScore</td>
+                        <td>Full stack</td>
+                        <td style="color:var(--green)">✅ Rich</td>
+                        <td style="color:var(--green)">✅ Peer</td>
+                        <td style="color:var(--green)">✅ Full</td>
+                        <td style="color:var(--green)">✅ Split</td>
+                        <td><span class="tag tag-purple">—</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">🏰 Your Moat (Ranked by Depth)</h3>
+            <ul>
+                <li><strong>1. Player data accumulation.</strong> Every match logged, every skill vote cast, every rating earned — this is an asset that compounds daily and cannot be replicated by a new entrant. After 12 months, your dataset is your moat</li>
+                <li><strong>2. Network effects.</strong> The app gets better with every player who joins. More players = more accurate ratings = better team balancing = better games = more players. Classic positive feedback loop</li>
+                <li><strong>3. Court relationships.</strong> Each court onboarded is a mini-sales effort. Your competitor has to repeat that work, one handshake at a time</li>
+                <li><strong>4. Habit formation.</strong> Once the post-match voting ritual becomes habit (2-3 months), switching costs are emotional, not technical. Their stats live here. Their reputation lives here</li>
+            </ul>
+            <div class="verdict verdict-danger">
+                <strong>Honest assessment:</strong> The moat is real but takes 12+ months to become defensible. In the first 6 months, any well-funded competitor could replicate the feature set. Your window of vulnerability is the first year. Speed of execution is everything.
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== TECHNICAL ==================== -->
+    <div id="technical" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">🛠 Technical Architecture — Solo Founder Stack</h3>
+            <p>This needs to be buildable by <strong>one senior systems engineer</strong>. No overengineering. Ship fast, iterate faster.</p>
+
+            <h4 style="color:var(--accent);margin:1rem 0 0.5rem;">Recommended Stack</h4>
+            <table class="comp-table">
+                <thead>
+                    <tr><th>Layer</th><th>Technology</th><th>Why</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="color:var(--text-bright)">Mobile App</td><td>React Native / Expo</td><td>Single codebase, iOS + Android. Expo handles 90% of native needs</td></tr>
+                    <tr><td style="color:var(--text-bright)">Court Dashboard</td><td>Next.js (web)</td><td>Courts use desktop/tablet. Web app is faster to iterate than native</td></tr>
+                    <tr><td style="color:var(--text-bright)">Backend</td><td>Supabase</td><td>Postgres + Auth + Realtime + Storage. No backend code for 80% of features</td></tr>
+                    <tr><td style="color:var(--text-bright)">Payments</td><td>Wompi or MercadoPago</td><td>Colombian-native payment processing. PSE, Nequi, cards. Pre-built SDKs</td></tr>
+                    <tr><td style="color:var(--text-bright)">Notifications</td><td>WhatsApp Business API (via Twilio/360dialog)</td><td>Meet users where they already are</td></tr>
+                    <tr><td style="color:var(--text-bright)">Analytics</td><td>PostHog (self-hosted free tier)</td><td>Product analytics without per-event costs</td></tr>
+                    <tr><td style="color:var(--text-bright)">Hosting</td><td>Vercel + Supabase Cloud</td><td>Free tier covers MVP. Scales cheaply</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">🧮 The Skill Rating Algorithm</h3>
+            <p>Core technical challenge. Here's a sensible approach:</p>
+            <ul>
+                <li><strong>6 skill dimensions:</strong> Speed, Passing, Shooting, Defense, Stamina, Vision — each rated 1-99 (FIFA-style for familiarity)</li>
+                <li><strong>Bayesian rating per skill:</strong> Start at 50 (neutral). Each peer vote nudges the posterior. Weight votes by voter's own overall rating (credibility score)</li>
+                <li><strong>Time decay:</strong> Ratings decay toward 50 at ~2% per week of inactivity. Keeps ratings current. "You're only as good as your last month"</li>
+                <li><strong>Match-gating:</strong> Votes only count when submitted within 2 hours of a logged match with both players present (GPS + match verification)</li>
+                <li><strong>Anti-collusion:</strong> If Player A always votes max for Player B and vice versa, apply a reciprocity discount. Detect voting rings via graph analysis</li>
+                <li><strong>Composite "CanchaScore":</strong> Weighted average of all 6 skills = single number (like an Uber rating). Displayed prominently on profile</li>
+            </ul>
+            <div class="verdict verdict-green">
+                <strong>Dev estimate:</strong> The rating system is ~2 weeks of focused work for a senior engineer. The tricky part isn't the math — it's the UX. Making post-match voting fast enough that people actually do it (under 30 seconds) while capturing meaningful data.
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">📱 MVP Scope — What to Build First</h3>
+            <p style="color:var(--text-bright);font-weight:600;">Phase 1 MVP (6-8 weeks):</p>
+            <ul>
+                <li class="check">Player profiles with FIFA-style skill radar card (shareable as image)</li>
+                <li class="check">Match logger (quick form: date, court, players, score)</li>
+                <li class="check">Post-match peer voting (2-3 skill categories, 30-second flow)</li>
+                <li class="check">Basic leaderboard (barrio-level)</li>
+                <li class="check">Court listing page (manually curated, no SaaS yet)</li>
+            </ul>
+            <p style="color:var(--text-bright);font-weight:600;margin-top:1rem;">Phase 2 (weeks 9-16):</p>
+            <ul>
+                <li class="check">Court dashboard (booking calendar, basic analytics)</li>
+                <li class="check">Online booking + payment processing (Wompi)</li>
+                <li class="check">WhatsApp notifications (booking confirmation, reminders)</li>
+                <li class="check">Team builder with skill-based balancing</li>
+            </ul>
+            <p style="color:var(--text-bright);font-weight:600;margin-top:1rem;">Phase 3 (weeks 17-24):</p>
+            <ul>
+                <li class="check">Court CRM + promotion engine</li>
+                <li class="check">Tournament system</li>
+                <li class="check">Payment splitting for groups</li>
+                <li class="check">Advanced analytics dashboard</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================== ROADMAP ==================== -->
+    <div id="roadmap" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">🗺 12-Month Execution Roadmap</h3>
+            <div class="roadmap">
+                <div class="roadmap-phase">
+                    <div class="phase-title">Month 1-2: Build MVP</div>
+                    <div class="phase-time">April - May 2026</div>
+                    <div class="phase-details">
+                        <ul>
+                            <li>Build player app (React Native/Expo) — profiles, match logging, peer voting</li>
+                            <li>Design the FIFA-style skill card (this is your viral asset — make it beautiful)</li>
+                            <li>Manually onboard 5 courts in one Bogotá barrio (Chapinero, Usaquén, or Suba)</li>
+                            <li>Recruit 50 "founding players" from your own network / local WhatsApp groups</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-title">Month 3: Beta Launch — One Barrio</div>
+                    <div class="phase-time">June 2026 (World Cup hype!)</div>
+                    <div class="phase-details">
+                        <ul>
+                            <li>Launch timing is CRITICAL — the World Cup starts June 2026. Futbol engagement will be at its absolute peak. Ride this wave</li>
+                            <li>Target: 200 active players, 5-10 courts, 500+ matches logged</li>
+                            <li>Go to courts physically. Offer free flyers, QR codes, maybe a small "best player of the month" trophy per court</li>
+                            <li>Key metric: post-match voting completion rate. If &lt;40% of matches get votes, the rating system dies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-title">Month 4-6: Product-Market Fit</div>
+                    <div class="phase-time">July - September 2026</div>
+                    <div class="phase-details">
+                        <ul>
+                            <li>Build court dashboard (Phase 2). Start offering it free to existing partner courts</li>
+                            <li>Integrate Wompi for online bookings + deposit collection</li>
+                            <li>Expand to 2-3 adjacent barrios. Target: 2,000 players, 30 courts</li>
+                            <li>Start charging: 10 courts on paid plans = ~$400 MRR</li>
+                            <li>Iterate HARD on the voting UX based on real usage data</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-title">Month 7-9: Revenue Engine</div>
+                    <div class="phase-time">October - December 2026</div>
+                    <div class="phase-details">
+                        <ul>
+                            <li>Bogotá-wide launch. Aggressive court onboarding (hire 1 part-time sales person)</li>
+                            <li>Launch promoted listings for courts</li>
+                            <li>Implement payment splitting (huge quality-of-life feature for groups)</li>
+                            <li>Target: 5,000 players, 60 courts (35 paid) = ~$2,500 MRR</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-title">Month 10-12: Scale & Second City</div>
+                    <div class="phase-time">January - March 2027</div>
+                    <div class="phase-details">
+                        <ul>
+                            <li>Expand to Medellín (second-largest futbol 5 market)</li>
+                            <li>Launch tournament engine — this drives engagement spikes</li>
+                            <li>Approach sports brands for partnership/sponsorship deals</li>
+                            <li>Target: 12,000 players, 120 courts (80 paid) = ~$5,500 MRR</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-title">Month 13-18: Target Revenue</div>
+                    <div class="phase-time">April - September 2027</div>
+                    <div class="phase-details">
+                        <ul>
+                            <li>3 cities (Bogotá, Medellín, Cali)</li>
+                            <li>25,000+ active players, 200+ courts (150 paid)</li>
+                            <li>SaaS + payments + promos = $8,500-10,500 MRR</li>
+                            <li>Net after costs: <strong>$5,000-8,500/month</strong> ✅</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== VERDICT ==================== -->
+    <div id="verdict" class="tab-content">
+        <div class="section">
+            <h3 class="section-title">⚖️ The Final Verdict</h3>
+
+            <div class="fin-grid" style="margin-bottom:1.5rem;">
+                <div class="fin-item">
+                    <div class="fin-label">Brutality Score</div>
+                    <div class="fin-value" style="color:var(--green)">71/100</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Time to $5K/mo</div>
+                    <div class="fin-value">12-15 months</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Capital Required</div>
+                    <div class="fin-value">$2-5K</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Solo Founder Viable</div>
+                    <div class="fin-value" style="color:var(--green)">Yes*</div>
+                    <div class="fin-note">*First 12 months</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Defensibility</div>
+                    <div class="fin-value" style="color:var(--orange)">Medium</div>
+                    <div class="fin-note">Grows with data</div>
+                </div>
+                <div class="fin-item">
+                    <div class="fin-label">Fun Factor</div>
+                    <div class="fin-value" style="color:var(--green)">Very High</div>
+                    <div class="fin-note">You'll enjoy building this</div>
+                </div>
+            </div>
+
+            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">✅ What I Like</h4>
+            <ul>
+                <li class="check"><strong>Dual revenue engine.</strong> B2C social creates the audience; B2B SaaS monetizes it. You're not dependent on consumers paying — courts pay because you deliver them customers with data they've never had</li>
+                <li class="check"><strong>The FIFA card is pure viral gold.</strong> In a country where futbol is religion, giving every casual player a professional-looking skill card they can share is the kind of hook that spreads organically</li>
+                <li class="check"><strong>Low capital, high skill ceiling.</strong> This is a perfect senior engineer project — technically interesting (rating algorithms, real-time systems, payment integration) without being operationally heavy</li>
+                <li class="check"><strong>World Cup timing is a gift.</strong> Launching a futbol app in June 2026 during the World Cup in the Americas is as good as timing gets</li>
+                <li class="check"><strong>The data asset compounds.</strong> Every day you run, your moat gets deeper. After 18 months, you have something no competitor can replicate without years of effort</li>
+            </ul>
+
+            <h4 style="color:var(--red);margin:1rem 0 0.5rem;">❌ What Worries Me</h4>
+            <ul>
+                <li class="risk"><strong>Longer time to revenue than RemesaStack or CoproTech.</strong> You're looking at 6-9 months before meaningful revenue, vs 3-4 months for a pure SaaS play. Cash flow patience required</li>
+                <li class="risk"><strong>Cold start is real.</strong> If you can't get 200 active players in one barrio within the first 2 months, the social features feel dead and the whole thing stalls</li>
+                <li class="risk"><strong>In-person sales required for courts.</strong> You can't fully remote this. You (or someone) needs to walk into courts, shake hands, and demo the product</li>
+                <li class="risk"><strong>WhatsApp inertia is massive.</strong> Never underestimate how hard it is to change a habit that "works fine"</li>
+            </ul>
+
+            <div class="verdict verdict-green" style="margin-top:1.5rem;">
+                <strong>🎙 Donna's Take:</strong> This is a <strong>strong 71</strong>. It's not the fastest path to $10K/month — that's still RemesaStack (75) for pure speed. But CanchaScore has something the others don't: <strong>it could become a real company</strong>. The network effects, the data moat, the two-sided market — these are the building blocks of something worth significantly more than $10K/month if you nail the execution.<br><br>
+                If you're building this to generate lifestyle income, it'll get there in 12-15 months. If you're building this because the idea excites you and you want optionality for something bigger — this is the one I'd pick. The World Cup timing alone is worth starting now.<br><br>
+                <strong>My recommendation:</strong> Build RemesaStack for the money. Build CanchaScore for the legacy. Or build CanchaScore and survive the first 6 lean months with freelance income. Your call, Dave.
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <p>This analysis represents an opinionated assessment based on publicly available market data as of March 2026.<br>
+        Exchange rate used: 1 USD ≈ 3,795 COP. All financial projections are estimates, not guarantees.<br>
+        Court counts are estimates based on directory data and industry reports; no official census exists.<br>
+        Built by Donna Paulsen for Dave. Yes, I know what futbol 5 is. I contain multitudes.</p>
+    </div>
+</div>
+
+<script>
+function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    const tabs = document.querySelectorAll('.tab-btn');
+    const map = { 'concept': 0, 'market': 1, 'risk': 2, 'financial': 3, 'competitive': 4, 'technical': 5, 'roadmap': 6, 'verdict': 7 };
+    if (map[tabId] !== undefined) tabs[map[tabId]].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
