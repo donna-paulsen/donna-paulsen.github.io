@@ -122,8 +122,8 @@
 <div class="container">
     <header>
         <h1>⚽ CanchaScore — Full Deep Dive</h1>
-        <p class="subtitle">A comprehensive VC-grade analysis of a casual futbol 5 social + venue management platform for the Colombian market. Player profiles, peer skill validation, court bookings, and B2B venue marketing — all in one stack.</p>
-        <p class="meta">Analysis Date: March 2026 &nbsp;|&nbsp; COP/USD: ~3,795 &nbsp;|&nbsp; Analyst: Donna Paulsen &nbsp;|&nbsp; <a href="/" style="color:var(--accent);text-decoration:none;">← Back to Hub</a></p>
+        <p class="subtitle">A comprehensive VC-grade analysis of a casual futbol 5 social + AI-powered venue management platform for the Colombian market. Player profiles, peer skill validation, solo training tools, AI court agents, and B2B venue SaaS — all in one stack.</p>
+        <p class="meta">Analysis Date: March 8, 2026 &nbsp;|&nbsp; COP/USD: ~3,795 &nbsp;|&nbsp; Analyst: Donna Paulsen &nbsp;|&nbsp; <a href="/" style="color:var(--accent);text-decoration:none;">← Back to Hub</a></p>
     </header>
 
     <!-- Score Hero -->
@@ -131,20 +131,20 @@
         <div class="score-hero-ring">
             <svg width="120" height="120" viewBox="0 0 120 120">
                 <circle cx="60" cy="60" r="52" fill="none" stroke="var(--surface-2)" stroke-width="6"/>
-                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--green)" stroke-width="6" stroke-dasharray="326.7" stroke-dashoffset="75.1" stroke-linecap="round"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--green)" stroke-width="6" stroke-dasharray="326.7" stroke-dashoffset="58.8" stroke-linecap="round"/>
             </svg>
-            <span class="score-val">71</span>
+            <span class="score-val">76</span>
             <span class="score-label">Brutality</span>
         </div>
         <div class="score-hero-info">
             <h2>CanchaScore</h2>
-            <p class="tagline">The social layer for casual futbol — player profiles, skill validation, match tracking + a B2B SaaS backend for court operators.</p>
+            <p class="tagline">The social layer for casual futbol — player profiles, skill validation, solo training tools + AI-powered B2B SaaS for court operators.</p>
             <div class="tags">
                 <span class="tag tag-green">Two-Sided Market</span>
                 <span class="tag tag-blue">Social + SaaS Hybrid</span>
-                <span class="tag tag-purple">High Engagement Loop</span>
-                <span class="tag tag-orange">Network Effects</span>
-                <span class="tag tag-green">Low Capital Start</span>
+                <span class="tag tag-purple">AI Agents for B2B</span>
+                <span class="tag tag-orange">Solo-Use from Day 1</span>
+                <span class="tag tag-green">No Payment Processing</span>
             </div>
         </div>
     </div>
@@ -168,10 +168,11 @@
             <p>Colombia is a nation that <em>breathes</em> futbol. Millions play recreationally every week, primarily futbol 5 on synthetic courts. Yet there is <strong>zero digital infrastructure</strong> for the casual player. No stats. No reputation. No way to find balanced games. No way for court owners to understand who their customers actually are.</p>
             <p style="margin-top:0.75rem;">CanchaScore is a <strong>two-sided platform</strong>:</p>
             <ul>
-                <li><strong>Side A (B2C — Players):</strong> Match logging, personal stats & skill radar, peer endorsements (LinkedIn-style for futbol skills), team formation, and court discovery/booking</li>
-                <li><strong>Side B (B2B — Court Operators):</strong> Booking management, payment processing, customer CRM, targeted promotions, and analytics dashboard</li>
+                <li><strong>Side A (B2C — Players):</strong> Solo training tools, personal stats & skill radar, peer endorsements (LinkedIn-style for futbol skills), match logging, team formation, and court discovery</li>
+                <li><strong>Side B (B2B — Court Operators):</strong> AI-powered scheduling agents, WhatsApp receptionist bots, booking management, customer CRM, targeted promotions, and analytics dashboard</li>
             </ul>
-            <p style="margin-top:0.75rem;">The magic is the <strong>data flywheel</strong>: players create profiles and log matches → courts get rich customer data → courts pay for marketing tools → players get better match experiences → more players join. The player side is free. The court side pays.</p>
+            <p style="margin-top:0.75rem;"><strong>Critical design decision:</strong> CanchaScore does NOT process payments. Courts handle their own money — we're not a fintech, we're not regulated, and we don't touch a single peso. We sell <em>intelligence and automation</em>. This keeps regulatory overhead at zero and removes the #1 objection from court owners ("you're taking a cut of my money").</p>
+            <p style="margin-top:0.75rem;">The magic is the <strong>data flywheel</strong>: players use the app solo to track their fitness and skills → they invite friends for match logging → courts get rich customer data → courts pay for AI agents and marketing tools → players get better match experiences → more players join. The player side is free. The court side pays.</p>
         </div>
 
         <div class="section">
@@ -185,6 +186,7 @@
                         <li class="star">Frustrated when teams are unbalanced — always one team destroying the other</li>
                         <li class="star">Shares stats on Instagram stories and WhatsApp groups</li>
                         <li class="star">Would love a "player rating" he can brag about at work</li>
+                        <li class="star">Wants to train solo between matches and see his fitness improve</li>
                     </ul>
                 </div>
                 <div class="persona">
@@ -193,10 +195,26 @@
                     <ul>
                         <li class="star">Has NO IDEA who 70% of his customers actually are beyond a WhatsApp name</li>
                         <li class="star">Dead hours (10am-4pm weekdays) kill profitability — needs to fill them</li>
-                        <li class="star">Loses bookings to no-shows (20-30%) and has no deposit system</li>
-                        <li class="star">Would pay for a tool that fills empty slots and reduces no-shows</li>
+                        <li class="star">Loses bookings to no-shows (20-30%) and has no penalty system</li>
+                        <li class="star">Would LOVE an AI that answers WhatsApp inquiries 24/7 so he can sleep</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">🎮 Solo-Use Features — The Cold Start Killer</h3>
+            <p>Most social sports apps die because they need 100 users before they're useful. CanchaScore is <strong>valuable from the very first session, even if you're the only user</strong>:</p>
+            <ul>
+                <li><strong>🏋️ Solo Training Mode:</strong> AI-generated futbol 5 training routines — agility drills, ball control exercises, shooting practice. Personalized based on your weakest skills. Track completion and see progress over time</li>
+                <li><strong>📊 Personal Stats Tracker:</strong> Log your own performance after every match — goals, assists, saves, rating. Build your stats history even before anyone else uses the app. YOUR data, YOUR history</li>
+                <li><strong>🎯 Self-Assessment:</strong> Rate yourself on the 6 skill dimensions. The app uses your self-rating as the starting point, then peer votes refine it over time. No empty profile on day one</li>
+                <li><strong>📈 Fitness Journal:</strong> Track cardio sessions, sprint times, weekly activity. See how your off-court training correlates with on-court performance. Integrates with phone health data (steps, heart rate)</li>
+                <li><strong>🏆 Personal Challenges:</strong> "Score 5 goals this week" / "Play 3 matches this month" / "Complete 10 training sessions." Gamified progress with badges and streaks</li>
+                <li><strong>📋 Match Planner:</strong> Create upcoming match events, invite friends via WhatsApp link, track RSVPs. Works even if friends don't have the app — they just click a link</li>
+            </ul>
+            <div class="verdict verdict-green">
+                <strong>Why this changes everything:</strong> A player downloads the app, sets up their profile, does a self-assessment, gets a FIFA card they can share immediately, starts a training plan, and tracks their next 3 matches — all <em>without a single other user on the platform</em>. The social features (peer voting, leaderboards) become the <strong>upgrade</strong>, not the entry requirement. This fundamentally solves the cold start problem.
             </div>
         </div>
 
@@ -206,27 +224,43 @@
                 <div>
                     <h4 style="color:var(--accent);margin-bottom:0.5rem;font-size:0.9rem;">PLAYER APP (Free)</h4>
                     <ul>
-                        <li><strong>Player Profile:</strong> FIFA-style skill radar (speed, passing, shooting, defense, stamina, vision) — peer-endorsed</li>
+                        <li><strong>Player Profile:</strong> FIFA-style skill radar (speed, passing, shooting, defense, stamina, vision) — self-assessed then peer-refined</li>
+                        <li><strong>Solo Training:</strong> AI-generated drills, fitness tracking, personal challenges, streaks & badges</li>
                         <li><strong>Match Logger:</strong> Quick post-match entry — who played, score, MVP votes, skill endorsements</li>
                         <li><strong>Reputation Score:</strong> Aggregated from peer votes + match history. "4.7 ⭐ — 128 matches played"</li>
                         <li><strong>Team Builder:</strong> AI-balanced teams based on skill ratings — no more stacked squads</li>
-                        <li><strong>Court Discovery:</strong> Find nearby courts, see availability, book & pay</li>
+                        <li><strong>Court Discovery:</strong> Find nearby courts, see availability, get info via AI chat</li>
                         <li><strong>Leaderboards:</strong> Barrio, city, and national rankings — weekly, monthly, all-time</li>
-                        <li><strong>Social Feed:</strong> Match highlights, milestone badges, trash talk</li>
+                        <li><strong>Match Planner:</strong> Create events, invite via WhatsApp link, track RSVPs (works without app install)</li>
                     </ul>
                 </div>
                 <div>
                     <h4 style="color:var(--green);margin-bottom:0.5rem;font-size:0.9rem;">COURT DASHBOARD (Paid SaaS)</h4>
                     <ul>
+                        <li><strong>🤖 AI Scheduling Agent:</strong> Answers availability questions via WhatsApp/chat 24/7. "¿Hay cancha el jueves a las 8?" → instant, accurate response</li>
+                        <li><strong>🤖 AI Receptionist:</strong> Handles general inquiries — prices, hours, services, directions. Speaks like a human, never sleeps</li>
                         <li><strong>Booking Engine:</strong> Real-time calendar, online reservations, automated confirmations</li>
-                        <li><strong>Payment Processing:</strong> Online payments via PSE/Nequi/Daviplata + deposit system to kill no-shows</li>
-                        <li><strong>Customer CRM:</strong> Every player who books has a profile — frequency, spend, preferred times, skill level</li>
-                        <li><strong>Smart Promotions:</strong> "Send 20% off to all players who haven't booked in 30 days" or "Fill Tuesday 2pm with intermediate players"</li>
+                        <li><strong>Customer CRM:</strong> Every player has a profile — frequency, preferred times, skill level, last visit</li>
+                        <li><strong>Smart Promotions:</strong> "Send 20% off to all players who haven't visited in 30 days" or "Fill Tuesday 2pm with intermediate players"</li>
                         <li><strong>Analytics:</strong> Occupancy rates, revenue per court-hour, peak/dead hour analysis</li>
                         <li><strong>Tournament Engine:</strong> Create and manage mini-tournaments — brackets, schedules, results</li>
-                        <li><strong>WhatsApp Integration:</strong> Auto-send confirmations and reminders via WhatsApp Business API</li>
+                        <li><strong>WhatsApp Integration:</strong> All AI agents + confirmations + reminders via WhatsApp Business API</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3 class="section-title">🤖 AI Agents — The B2B Killer Feature</h3>
+            <p>This is what makes CanchaScore <strong>impossible for iCancha or CanchaYa to replicate quickly</strong>. Every court gets their own AI employees:</p>
+            <ul>
+                <li><strong>📅 The Scheduler Agent:</strong> Connected to the court's real-time calendar. When a lead messages on WhatsApp asking "¿Hay cancha para mañana viernes a las 7pm?", the agent checks availability, offers alternatives if the slot is taken, and can tentatively hold it. No human intervention needed. Works 24/7, responds in seconds</li>
+                <li><strong>💬 The Receptionist Agent:</strong> Trained on each court's specific info — prices per hour (peak/off-peak), services (cafetería, parking, uniforms), location details, group discounts, league schedules. Answers any question a walk-in would ask the front desk. In Spanish, naturally, with the court's brand voice</li>
+                <li><strong>📣 The Re-engagement Agent:</strong> Proactively reaches out to lapsed players. "Hey Juan, hace 3 semanas que no vienes a jugar. Este martes tenemos 30% off en horario de tarde. ¿Te reservo?" — automated, personalized, using CRM data</li>
+                <li><strong>🏆 The Tournament Organizer:</strong> Handles registration, bracket generation, schedule coordination, and results posting for court-hosted tournaments. Players interact with the agent to sign up their team</li>
+            </ul>
+            <div class="verdict verdict-green">
+                <strong>Why court owners will pay for this:</strong> The average canchero spends 2-3 hours daily answering WhatsApp messages about availability and prices. That's <em>unpaid administrative labor</em> that directly competes with running the business. An AI agent that handles 80% of those conversations for $50-100/month? That's the easiest sell in the history of SaaS. They don't need to understand "AI" — they understand "someone else answers the phone."
             </div>
         </div>
 
@@ -293,8 +327,8 @@
                     <ul>
                         <li class="risk"><strong>Organizing games is a WhatsApp nightmare.</strong> "¿Quién va el jueves?" → 47 messages, 3 people drop out at the last minute, teams are unbalanced</li>
                         <li class="risk"><strong>No reputation portability.</strong> You're amazing at your regular court, but when you show up to a pickup game elsewhere, you're a nobody</li>
-                        <li class="risk"><strong>Finding courts is word-of-mouth only.</strong> Google Maps listings are incomplete, prices are outdated, availability is a phone call</li>
-                        <li class="risk"><strong>Payment splitting is chaos.</strong> "Cada uno pone 20 mil" → someone always owes, someone always overpays, the organizer subsidizes flakers</li>
+                        <li class="risk"><strong>Finding courts is word-of-mouth only.</strong> Google Maps listings are incomplete, prices are outdated, availability requires a phone call</li>
+                        <li class="risk"><strong>No way to improve between games.</strong> You play once a week but there's no structured way to train or track fitness between matches</li>
                         <li class="risk"><strong>No record of anything.</strong> You've played 500 matches and have zero to show for it. Where's your highlight reel? Your stats? Your legacy?</li>
                     </ul>
                 </div>
@@ -302,10 +336,10 @@
                     <h4 style="color:var(--red);margin-bottom:0.5rem;font-size:0.9rem;">COURT OWNERS' PAIN</h4>
                     <ul>
                         <li class="risk"><strong>Dead hours bleed money.</strong> Courts sit empty 30-40% of the time, especially weekday mornings/afternoons. Fixed costs don't stop</li>
-                        <li class="risk"><strong>No-shows cost 20-30% of bookings.</strong> Zero deposit culture means people just... don't show up. And there's no penalty</li>
+                        <li class="risk"><strong>WhatsApp is a full-time job.</strong> The canchero spends 2-3 hours/day answering the same questions: "¿Hay cancha mañana?" "¿Cuánto cuesta?" "¿Hasta qué hora?" Over and over and over</li>
                         <li class="risk"><strong>Customer retention is blind.</strong> A group books for 6 months, then vanishes. No CRM, no re-engagement, no idea why they left</li>
                         <li class="risk"><strong>Marketing is spray-and-pray.</strong> Instagram posts that nobody sees. No way to target "players who like Thursday night games"</li>
-                        <li class="risk"><strong>Cash handling is risky and opaque.</strong> Employees manage cash, skimming is common, reconciliation is a spreadsheet</li>
+                        <li class="risk"><strong>Leads fall through the cracks.</strong> Someone messages at 11pm asking about Saturday. Canchero is asleep. By morning, they've booked elsewhere</li>
                     </ul>
                 </div>
             </div>
@@ -329,11 +363,11 @@
             <h3 class="section-title">💀 Why CanchaScore Will Fail — The Brutally Honest Version</h3>
             <p style="color:var(--red);font-weight:600;margin-bottom:1rem;">I'm going to be meaner than usual here, because this idea has a seductive quality that hides real pitfalls.</p>
 
-            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">1. The Cold Start Problem Is BRUTAL</h4>
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">1. The Cold Start Problem (Mitigated but Not Eliminated)</h4>
             <ul>
-                <li class="risk"><strong>Two-sided marketplace = chicken-and-egg from hell.</strong> Players won't come without courts. Courts won't pay without players. You need to solve both simultaneously</li>
-                <li class="risk"><strong>The skill system needs ~10 matches per player to be meaningful.</strong> That's 10 weeks of adoption before the "magic" kicks in. Most users churn by week 2</li>
-                <li class="risk"><strong>Empty leaderboards are depressing.</strong> If you launch in a barrio and only 15 people sign up, the social features feel dead. Social apps need critical mass or they're graveyards</li>
+                <li class="risk"><strong>Solo features buy time, but social is still the retention hook.</strong> A player can use training mode alone for weeks — but if peer endorsements and leaderboards never kick in, they'll eventually ask "why am I using this instead of a generic fitness app?"</li>
+                <li class="risk"><strong>The skill system still needs ~10 matches to be meaningful.</strong> Self-assessment gets you a starting card, but the "wow, my rating changed!" moment requires peers. That's 10 weeks of social adoption</li>
+                <li class="risk"><strong>Match Planner only works if friends participate.</strong> The WhatsApp invite link is frictionless, but converting a link-click to an app download is still a hurdle</li>
             </ul>
 
             <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">2. WhatsApp Is the Real Competitor</h4>
@@ -351,14 +385,15 @@
             <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">4. Court Owners Are Technophobic and Skeptical</h4>
             <ul>
                 <li class="risk"><strong>The canchero doesn't trust technology.</strong> He's seen 5 "apps that will revolutionize your business" in the last 3 years. None survived</li>
-                <li class="risk"><strong>Payment processing takes a cut.</strong> If you add 3-5% for digital payments, the court owner sees that as money stolen from him — not efficiency gained</li>
+                <li class="risk"><strong>"AI" is a buzzword that scares small business owners.</strong> They hear "artificial intelligence" and think either "that's for big companies" or "that's going to replace me." You need to sell the outcome ("someone answers your WhatsApp 24/7"), not the technology</li>
                 <li class="risk"><strong>The sales cycle is in-person and slow.</strong> You can't sell to court owners via email or ads. You need to walk in, shake hands, and demonstrate. In every single court</li>
             </ul>
 
-            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">5. Monetization Timing Is Tricky</h4>
+            <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">5. AI Agent Reliability</h4>
             <ul>
-                <li class="risk"><strong>You need 6-12 months of free growth before you can charge courts meaningfully.</strong> That's 6-12 months of expenses with near-zero revenue. Can you survive that?</li>
-                <li class="risk"><strong>Transaction fees are a race to the bottom.</strong> Once you start processing payments, you're competing with PSE, Nequi, and Mercado Pago's embedded payment solutions — all of which have better rates</li>
+                <li class="risk"><strong>AI hallucinations in a business context are catastrophic.</strong> If the scheduler agent tells a customer "sí, hay cancha a las 7pm" when there isn't, you've created a worse experience than no agent at all. The court owner loses trust instantly</li>
+                <li class="risk"><strong>WhatsApp Business API costs scale with usage.</strong> Each conversation costs money. If your AI agent is chatty or handles high volume, your per-court margins shrink</li>
+                <li class="risk"><strong>LLM costs per conversation matter.</strong> At $0.01-0.05 per AI interaction, a busy court with 50 daily inquiries = $15-75/month in AI costs alone. Your margins need to account for this</li>
             </ul>
 
             <h4 style="color:var(--text-bright);margin:1rem 0 0.5rem;">6. Copycats</h4>
@@ -371,11 +406,13 @@
         <div class="section">
             <h3 class="section-title">🛡 Risk Mitigation — What Makes This Survivable</h3>
             <ul>
+                <li class="check"><strong>Solo-use features eliminate the "empty room" problem.</strong> Players get immediate value — training plans, fitness tracking, self-assessment cards — before a single friend joins. The social layer is an upgrade, not a prerequisite</li>
                 <li class="check"><strong>The player data moat is real.</strong> If you accumulate 50K player profiles with 100+ matches each, that dataset is incredibly hard to replicate. iCancha can copy the UI; they can't copy the history</li>
                 <li class="check"><strong>Start hyper-local.</strong> Don't launch "in Colombia." Launch in one barrio of Bogotá. 5 courts, 200 players. Make it <em>dense</em> — make it feel alive. Then expand neighborhood by neighborhood</li>
-                <li class="check"><strong>WhatsApp is a channel, not a competitor.</strong> Use WhatsApp Business API as your notification layer. Don't fight it — ride it. The app is for profiles and stats; WhatsApp is for reminders and bookings</li>
+                <li class="check"><strong>WhatsApp is a channel, not a competitor.</strong> Your AI agents LIVE in WhatsApp. Don't fight it — own it. The app is for profiles and stats; WhatsApp is where the AI agents operate</li>
                 <li class="check"><strong>The FIFA card is viral by design.</strong> People screenshot and share skill cards. It's built-in organic marketing. Every share is a mini-billboard</li>
-                <li class="check"><strong>Court owner pain is real and immediate.</strong> If you can prove even a 10% reduction in no-shows via deposits, the ROI sells itself</li>
+                <li class="check"><strong>AI agents sell themselves with a 5-minute demo.</strong> Walk into a court, show the owner an AI answering his real WhatsApp questions in real time. The "aha moment" is instant — no abstract pitch needed</li>
+                <li class="check"><strong>No payment processing = no regulatory headaches.</strong> You don't touch money, you don't need Superfinanciera approval, you don't compete with Nequi. Clean, simple SaaS</li>
             </ul>
         </div>
     </div>
@@ -384,57 +421,38 @@
     <div id="financial" class="tab-content">
         <div class="section">
             <h3 class="section-title">💰 Revenue Model — The Full Stack</h3>
-            <p>CanchaScore has <strong>5 revenue streams</strong>, layered by maturity:</p>
+            <p>CanchaScore has <strong>4 revenue streams</strong>, layered by maturity. Crucially, <strong>none involve payment processing</strong> — no fintech regulation, no Superfinanciera, no touching a single peso:</p>
 
-            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 1: Court SaaS Subscription (Primary)</h4>
+            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 1: Court SaaS + AI Agents (Primary)</h4>
             <div class="fin-grid">
                 <div class="fin-item">
-                    <div class="fin-label">Basic Plan</div>
-                    <div class="fin-value">$25/mo</div>
-                    <div class="fin-note">~95K COP — booking + calendar</div>
+                    <div class="fin-label">Starter Plan</div>
+                    <div class="fin-value">$30/mo</div>
+                    <div class="fin-note">~114K COP — booking calendar + CRM</div>
                 </div>
                 <div class="fin-item">
-                    <div class="fin-label">Pro Plan</div>
-                    <div class="fin-value">$50/mo</div>
-                    <div class="fin-note">~190K COP — + CRM + promos</div>
+                    <div class="fin-label">AI Pro Plan</div>
+                    <div class="fin-value">$70/mo</div>
+                    <div class="fin-note">~266K COP — + AI Scheduler + Receptionist</div>
                 </div>
                 <div class="fin-item">
-                    <div class="fin-label">Premium Plan</div>
-                    <div class="fin-value">$100/mo</div>
-                    <div class="fin-note">~380K COP — + analytics + tournaments</div>
+                    <div class="fin-label">AI Premium Plan</div>
+                    <div class="fin-value">$120/mo</div>
+                    <div class="fin-note">~456K COP — + Re-engagement Agent + Analytics + Tournaments</div>
                 </div>
             </div>
-            <p style="font-size:0.85rem;color:var(--text-muted);">Target: 100-200 paying courts at avg $40/mo = <strong>$4,000-8,000 MRR</strong></p>
+            <p style="font-size:0.85rem;color:var(--text-muted);">Target: 100-150 paying courts at avg $65/mo = <strong>$6,500-9,750 MRR</strong></p>
+            <p style="font-size:0.85rem;margin-top:0.5rem;">The AI agents justify higher pricing than a pure SaaS play. A court paying 266K COP/month ($70) for an AI that handles 80% of WhatsApp inquiries is replacing a part-time employee that would cost 800K+ COP/month. The ROI pitch is dead simple.</p>
 
-            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 2: Payment Processing Fees</h4>
-            <p>Process bookings and split payments through the app. Take 2-3% of each transaction.</p>
-            <div class="fin-grid">
-                <div class="fin-item">
-                    <div class="fin-label">Avg Booking Value</div>
-                    <div class="fin-value">$35</div>
-                    <div class="fin-note">~133K COP per hour</div>
-                </div>
-                <div class="fin-item">
-                    <div class="fin-label">Monthly Txns (target)</div>
-                    <div class="fin-value">5,000</div>
-                    <div class="fin-note">across all courts</div>
-                </div>
-                <div class="fin-item">
-                    <div class="fin-label">Revenue @ 2.5%</div>
-                    <div class="fin-value">$4,375/mo</div>
-                    <div class="fin-note">5,000 × $35 × 2.5%</div>
-                </div>
-            </div>
-
-            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 3: Promoted Listings & Ads</h4>
-            <p>Courts pay to appear first in search results, send push notifications to nearby players, or sponsor leaderboards.</p>
+            <h4 style="color:var(--green);margin:1rem 0 0.5rem;">Stream 2: Promoted Listings & Targeted Ads</h4>
+            <p>Courts pay to appear first in search results, send push notifications to nearby players, or sponsor leaderboards. Targeted using player skill data: "Promote your advanced league to players rated 70+".</p>
             <p style="font-size:0.85rem;color:var(--text-muted);">Estimated: <strong>$500-2,000/mo</strong> once player base hits 10K+</p>
 
-            <h4 style="color:var(--orange);margin:1rem 0 0.5rem;">Stream 4: Tournament Fees (Later)</h4>
-            <p>Organize branded tournaments. Charge entry fees, take 10-15% platform cut + court rental commission.</p>
+            <h4 style="color:var(--orange);margin:1rem 0 0.5rem;">Stream 3: Tournament Fees (Later)</h4>
+            <p>Organize branded tournaments via the AI Tournament Organizer. Courts pay a flat fee per tournament hosted through the platform.</p>
             <p style="font-size:0.85rem;color:var(--text-muted);">Estimated: <strong>$500-1,500/mo</strong> at scale</p>
 
-            <h4 style="color:var(--orange);margin:1rem 0 0.5rem;">Stream 5: Data & Partnerships (Later)</h4>
+            <h4 style="color:var(--orange);margin:1rem 0 0.5rem;">Stream 4: Data & Partnerships (Later)</h4>
             <p>Aggregate player data for sports brands (Nike, Adidas, Gatorade), insurance companies (sports injury coverage), and sports equipment retailers. Anonymized, compliant, valuable.</p>
             <p style="font-size:0.85rem;color:var(--text-muted);">Estimated: <strong>$1,000-3,000/mo</strong> at 50K+ active players</p>
         </div>
@@ -460,58 +478,59 @@
                         <td>10 (free)</td>
                         <td>500</td>
                         <td style="color:var(--red)">$0</td>
-                        <td>$300</td>
-                        <td style="color:var(--red)">-$300</td>
+                        <td>$200</td>
+                        <td style="color:var(--red)">-$200</td>
                     </tr>
                     <tr>
                         <td style="color:var(--text-bright)">Traction</td>
                         <td>Month 4-6</td>
-                        <td>30 (10 paid)</td>
+                        <td>25 (8 paid)</td>
                         <td>2,000</td>
+                        <td>$520</td>
                         <td>$400</td>
-                        <td>$500</td>
-                        <td style="color:var(--red)">-$100</td>
+                        <td style="color:var(--green)">+$120</td>
                     </tr>
                     <tr>
                         <td style="color:var(--text-bright)">Revenue</td>
                         <td>Month 7-9</td>
-                        <td>60 (35 paid)</td>
+                        <td>50 (30 paid)</td>
                         <td>5,000</td>
-                        <td>$2,500</td>
-                        <td>$800</td>
-                        <td style="color:var(--green)">+$1,700</td>
+                        <td>$2,100</td>
+                        <td>$700</td>
+                        <td style="color:var(--green)">+$1,400</td>
                     </tr>
                     <tr>
                         <td style="color:var(--text-bright)">Growth</td>
                         <td>Month 10-12</td>
-                        <td>120 (80 paid)</td>
+                        <td>100 (70 paid)</td>
                         <td>12,000</td>
-                        <td>$5,500</td>
-                        <td>$1,200</td>
-                        <td style="color:var(--green)">+$4,300</td>
+                        <td>$5,200</td>
+                        <td>$1,100</td>
+                        <td style="color:var(--green)">+$4,100</td>
                     </tr>
                     <tr>
                         <td style="color:var(--text-bright)">Target</td>
                         <td>Month 13-18</td>
-                        <td>200 (150 paid)</td>
+                        <td>180 (130 paid)</td>
                         <td>25,000</td>
-                        <td>$10,500</td>
-                        <td>$2,000</td>
-                        <td style="color:var(--green)">+$8,500</td>
+                        <td>$9,500</td>
+                        <td>$1,800</td>
+                        <td style="color:var(--green)">+$7,700</td>
                     </tr>
                 </tbody>
             </table>
             <div class="verdict">
-                <strong>Cost breakdown at scale:</strong> Hosting/infra: $400 | Payment gateway fees: $600 | WhatsApp API: $200 | Marketing: $500 | Misc: $300. No employees needed until 200+ courts — you can automate most of it. The margins improve dramatically because software scales linearly while court-owner revenue stacks.
+                <strong>Cost breakdown at scale:</strong> Hosting/infra: $300 | LLM API costs (AI agents): $400 | WhatsApp Business API: $300 | Marketing: $500 | Misc: $300. No employees needed until 150+ courts — the AI agents are the employees. Margins are strong because you don't process payments (no gateway fees) and LLM costs per conversation keep dropping.
             </div>
         </div>
 
         <div class="section">
             <h3 class="section-title">💱 COP/USD Reality Check</h3>
             <ul>
-                <li>At 3,795 COP/USD, a court paying 190,000 COP/month ($50) is spending <strong>less than one day's booking revenue</strong>. Easy sell</li>
+                <li>At 3,795 COP/USD, a court paying 266,000 COP/month ($70) for an AI Pro plan is spending <strong>less than one day's booking revenue</strong>. They'd pay more for a part-time receptionist. Easy sell</li>
                 <li>Player-side is free, so no COP affordability issue on consumer side</li>
-                <li>Payment processing revenue in COP but your costs (hosting, APIs) are in USD — you benefit from peso stability or weakness</li>
+                <li>No payment processing means no transaction-based revenue in COP — your revenue is pure SaaS subscriptions, predictable and clean</li>
+                <li>LLM API costs are in USD but scale down over time as models get cheaper. Your margins improve automatically every quarter</li>
                 <li>$10K USD/month = ~38M COP. That's a senior manager salary in Colombia. Very comfortable lifestyle target</li>
             </ul>
         </div>
@@ -529,7 +548,7 @@
                         <th>Player Profiles</th>
                         <th>Skill Rating</th>
                         <th>Court SaaS</th>
-                        <th>Payments</th>
+                        <th>AI Agents</th>
                         <th>Threat Level</th>
                     </tr>
                 </thead>
@@ -540,7 +559,7 @@
                         <td style="color:var(--red)">❌</td>
                         <td style="color:var(--red)">❌</td>
                         <td style="color:var(--orange)">Basic</td>
-                        <td style="color:var(--green)">✅</td>
+                        <td style="color:var(--red)">❌</td>
                         <td><span class="tag tag-orange">Medium</span></td>
                     </tr>
                     <tr>
@@ -558,7 +577,7 @@
                         <td style="color:var(--orange)">Basic</td>
                         <td style="color:var(--red)">❌</td>
                         <td style="color:var(--red)">❌</td>
-                        <td style="color:var(--green)">✅</td>
+                        <td style="color:var(--red)">❌</td>
                         <td><span class="tag tag-green">Low</span></td>
                     </tr>
                     <tr>
@@ -567,7 +586,7 @@
                         <td style="color:var(--orange)">Basic</td>
                         <td style="color:var(--red)">❌</td>
                         <td style="color:var(--red)">❌</td>
-                        <td style="color:var(--green)">✅</td>
+                        <td style="color:var(--red)">❌</td>
                         <td><span class="tag tag-green">Low</span></td>
                     </tr>
                     <tr>
@@ -581,11 +600,11 @@
                     </tr>
                     <tr style="background:rgba(63,185,80,0.05);">
                         <td style="color:var(--green);font-weight:700">CanchaScore</td>
-                        <td>Full stack</td>
+                        <td>Full stack + AI</td>
                         <td style="color:var(--green)">✅ Rich</td>
                         <td style="color:var(--green)">✅ Peer</td>
                         <td style="color:var(--green)">✅ Full</td>
-                        <td style="color:var(--green)">✅ Split</td>
+                        <td style="color:var(--green)">✅ 4 Agents</td>
                         <td><span class="tag tag-purple">—</span></td>
                     </tr>
                 </tbody>
@@ -621,10 +640,10 @@
                     <tr><td style="color:var(--text-bright)">Mobile App</td><td>React Native / Expo</td><td>Single codebase, iOS + Android. Expo handles 90% of native needs</td></tr>
                     <tr><td style="color:var(--text-bright)">Court Dashboard</td><td>Next.js (web)</td><td>Courts use desktop/tablet. Web app is faster to iterate than native</td></tr>
                     <tr><td style="color:var(--text-bright)">Backend</td><td>Supabase</td><td>Postgres + Auth + Realtime + Storage. No backend code for 80% of features</td></tr>
-                    <tr><td style="color:var(--text-bright)">Payments</td><td>Wompi or MercadoPago</td><td>Colombian-native payment processing. PSE, Nequi, cards. Pre-built SDKs</td></tr>
-                    <tr><td style="color:var(--text-bright)">Notifications</td><td>WhatsApp Business API (via Twilio/360dialog)</td><td>Meet users where they already are</td></tr>
+                    <tr><td style="color:var(--text-bright)">AI Agents</td><td>OpenAI API / Claude + LangChain</td><td>Function-calling for calendar lookups, structured outputs for booking confirmations. Cost: $0.01-0.03 per conversation</td></tr>
+                    <tr><td style="color:var(--text-bright)">WhatsApp Layer</td><td>WhatsApp Business API (via 360dialog/Twilio)</td><td>AI agents live here. Also handles notifications + reminders for players</td></tr>
                     <tr><td style="color:var(--text-bright)">Analytics</td><td>PostHog (self-hosted free tier)</td><td>Product analytics without per-event costs</td></tr>
-                    <tr><td style="color:var(--text-bright)">Hosting</td><td>Vercel + Supabase Cloud</td><td>Free tier covers MVP. Scales cheaply</td></tr>
+                    <tr><td style="color:var(--text-bright)">Hosting</td><td>Vercel + Supabase Cloud + Railway</td><td>Free tiers cover MVP. Railway for AI agent worker processes</td></tr>
                 </tbody>
             </table>
         </div>
@@ -647,27 +666,31 @@
 
         <div class="section">
             <h3 class="section-title">📱 MVP Scope — What to Build First</h3>
-            <p style="color:var(--text-bright);font-weight:600;">Phase 1 MVP (6-8 weeks):</p>
+            <p style="color:var(--text-bright);font-weight:600;">Phase 1 MVP (6-8 weeks) — "The Solo Player":</p>
             <ul>
                 <li class="check">Player profiles with FIFA-style skill radar card (shareable as image)</li>
-                <li class="check">Match logger (quick form: date, court, players, score)</li>
-                <li class="check">Post-match peer voting (2-3 skill categories, 30-second flow)</li>
-                <li class="check">Basic leaderboard (barrio-level)</li>
+                <li class="check">Self-assessment flow (rate yourself, get instant card)</li>
+                <li class="check">Solo training mode (AI-generated drills, fitness tracking)</li>
+                <li class="check">Personal stats tracker + match logger</li>
+                <li class="check">Match planner with WhatsApp invite links</li>
                 <li class="check">Court listing page (manually curated, no SaaS yet)</li>
             </ul>
-            <p style="color:var(--text-bright);font-weight:600;margin-top:1rem;">Phase 2 (weeks 9-16):</p>
+            <p style="color:var(--text-bright);font-weight:600;margin-top:1rem;">Phase 2 (weeks 9-16) — "The Social Layer + AI Agents":</p>
             <ul>
-                <li class="check">Court dashboard (booking calendar, basic analytics)</li>
-                <li class="check">Online booking + payment processing (Wompi)</li>
-                <li class="check">WhatsApp notifications (booking confirmation, reminders)</li>
+                <li class="check">Post-match peer voting (2-3 skill categories, 30-second flow)</li>
+                <li class="check">Leaderboards (barrio-level)</li>
+                <li class="check">AI Scheduler Agent (WhatsApp-based, connected to court calendar)</li>
+                <li class="check">AI Receptionist Agent (answers court-specific FAQs)</li>
+                <li class="check">Court dashboard v1 (booking calendar, basic CRM)</li>
                 <li class="check">Team builder with skill-based balancing</li>
             </ul>
-            <p style="color:var(--text-bright);font-weight:600;margin-top:1rem;">Phase 3 (weeks 17-24):</p>
+            <p style="color:var(--text-bright);font-weight:600;margin-top:1rem;">Phase 3 (weeks 17-24) — "The Revenue Engine":</p>
             <ul>
+                <li class="check">AI Re-engagement Agent (automated lapsed-player outreach)</li>
                 <li class="check">Court CRM + promotion engine</li>
-                <li class="check">Tournament system</li>
-                <li class="check">Payment splitting for groups</li>
+                <li class="check">Tournament system + AI Tournament Organizer</li>
                 <li class="check">Advanced analytics dashboard</li>
+                <li class="check">Promoted listings for courts</li>
             </ul>
         </div>
     </div>
@@ -678,54 +701,55 @@
             <h3 class="section-title">🗺 12-Month Execution Roadmap</h3>
             <div class="roadmap">
                 <div class="roadmap-phase">
-                    <div class="phase-title">Month 1-2: Build MVP</div>
+                    <div class="phase-title">Month 1-2: Build the Solo Player MVP</div>
                     <div class="phase-time">April - May 2026</div>
                     <div class="phase-details">
                         <ul>
-                            <li>Build player app (React Native/Expo) — profiles, match logging, peer voting</li>
-                            <li>Design the FIFA-style skill card (this is your viral asset — make it beautiful)</li>
-                            <li>Manually onboard 5 courts in one Bogotá barrio (Chapinero, Usaquén, or Suba)</li>
-                            <li>Recruit 50 "founding players" from your own network / local WhatsApp groups</li>
+                            <li>Build player app (React Native/Expo) — profiles, self-assessment, solo training, match logging</li>
+                            <li>Design the FIFA-style skill card (this is your viral asset — make it beautiful, make it shareable)</li>
+                            <li>Build the AI training routine generator (use OpenAI/Claude for personalized drills)</li>
+                            <li>Launch Match Planner with WhatsApp invite links (works without app install for invitees)</li>
+                            <li>Recruit 50 "founding players" from your own network / local futbol 5 WhatsApp groups</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="roadmap-phase">
-                    <div class="phase-title">Month 3: Beta Launch — One Barrio</div>
+                    <div class="phase-title">Month 3: Beta Launch — Ride the World Cup</div>
                     <div class="phase-time">June 2026 (World Cup hype!)</div>
                     <div class="phase-details">
                         <ul>
                             <li>Launch timing is CRITICAL — the World Cup starts June 2026. Futbol engagement will be at its absolute peak. Ride this wave</li>
-                            <li>Target: 200 active players, 5-10 courts, 500+ matches logged</li>
-                            <li>Go to courts physically. Offer free flyers, QR codes, maybe a small "best player of the month" trophy per court</li>
-                            <li>Key metric: post-match voting completion rate. If &lt;40% of matches get votes, the rating system dies</li>
+                            <li>Target: 500 solo users (training + stats), 200 social users (match logging + peer voting)</li>
+                            <li>The solo features mean users can engage even without finding other users — key for early growth</li>
+                            <li>Start building AI agents (Scheduler + Receptionist) for 5 partner courts in one Bogotá barrio</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="roadmap-phase">
-                    <div class="phase-title">Month 4-6: Product-Market Fit</div>
+                    <div class="phase-title">Month 4-6: AI Agents Launch + Court Onboarding</div>
                     <div class="phase-time">July - September 2026</div>
                     <div class="phase-details">
                         <ul>
-                            <li>Build court dashboard (Phase 2). Start offering it free to existing partner courts</li>
-                            <li>Integrate Wompi for online bookings + deposit collection</li>
-                            <li>Expand to 2-3 adjacent barrios. Target: 2,000 players, 30 courts</li>
-                            <li>Start charging: 10 courts on paid plans = ~$400 MRR</li>
-                            <li>Iterate HARD on the voting UX based on real usage data</li>
+                            <li>Deploy AI Scheduler + Receptionist agents to 10 courts (free trial, prove the value)</li>
+                            <li>Build court dashboard v1 (booking calendar, basic CRM)</li>
+                            <li>Key demo: walk into a court, show the AI answering real WhatsApp questions live. Close the deal on the spot</li>
+                            <li>Start charging: 8 courts on paid plans = ~$520 MRR</li>
+                            <li>Target: 2,000 players, 25 courts. Iterate on voting UX based on real usage</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="roadmap-phase">
-                    <div class="phase-title">Month 7-9: Revenue Engine</div>
+                    <div class="phase-title">Month 7-9: Revenue Engine + Re-engagement Agent</div>
                     <div class="phase-time">October - December 2026</div>
                     <div class="phase-details">
                         <ul>
-                            <li>Bogotá-wide launch. Aggressive court onboarding (hire 1 part-time sales person)</li>
+                            <li>Launch AI Re-engagement Agent — automated outreach to lapsed players using CRM data</li>
+                            <li>Bogotá-wide court onboarding push. The AI demo sells itself</li>
                             <li>Launch promoted listings for courts</li>
-                            <li>Implement payment splitting (huge quality-of-life feature for groups)</li>
-                            <li>Target: 5,000 players, 60 courts (35 paid) = ~$2,500 MRR</li>
+                            <li>Target: 5,000 players, 50 courts (30 paid) = ~$2,100 MRR</li>
                         </ul>
                     </div>
                 </div>
@@ -736,9 +760,9 @@
                     <div class="phase-details">
                         <ul>
                             <li>Expand to Medellín (second-largest futbol 5 market)</li>
-                            <li>Launch tournament engine — this drives engagement spikes</li>
+                            <li>Launch AI Tournament Organizer — this drives engagement spikes and court revenue</li>
                             <li>Approach sports brands for partnership/sponsorship deals</li>
-                            <li>Target: 12,000 players, 120 courts (80 paid) = ~$5,500 MRR</li>
+                            <li>Target: 12,000 players, 100 courts (70 paid) = ~$5,200 MRR</li>
                         </ul>
                     </div>
                 </div>
@@ -749,9 +773,9 @@
                     <div class="phase-details">
                         <ul>
                             <li>3 cities (Bogotá, Medellín, Cali)</li>
-                            <li>25,000+ active players, 200+ courts (150 paid)</li>
-                            <li>SaaS + payments + promos = $8,500-10,500 MRR</li>
-                            <li>Net after costs: <strong>$5,000-8,500/month</strong> ✅</li>
+                            <li>25,000+ active players, 180+ courts (130 paid)</li>
+                            <li>SaaS + AI agents + promos = $9,500 MRR</li>
+                            <li>Net after costs: <strong>$5,000-7,700/month</strong> ✅</li>
                         </ul>
                     </div>
                 </div>
@@ -767,15 +791,15 @@
             <div class="fin-grid" style="margin-bottom:1.5rem;">
                 <div class="fin-item">
                     <div class="fin-label">Brutality Score</div>
-                    <div class="fin-value" style="color:var(--green)">71/100</div>
+                    <div class="fin-value" style="color:var(--green)">76/100</div>
                 </div>
                 <div class="fin-item">
                     <div class="fin-label">Time to $5K/mo</div>
-                    <div class="fin-value">12-15 months</div>
+                    <div class="fin-value">10-13 months</div>
                 </div>
                 <div class="fin-item">
                     <div class="fin-label">Capital Required</div>
-                    <div class="fin-value">$2-5K</div>
+                    <div class="fin-value">$2-4K</div>
                 </div>
                 <div class="fin-item">
                     <div class="fin-label">Solo Founder Viable</div>
@@ -784,43 +808,44 @@
                 </div>
                 <div class="fin-item">
                     <div class="fin-label">Defensibility</div>
-                    <div class="fin-value" style="color:var(--orange)">Medium</div>
-                    <div class="fin-note">Grows with data</div>
+                    <div class="fin-value" style="color:var(--green)">High</div>
+                    <div class="fin-note">AI + Data + Network</div>
                 </div>
                 <div class="fin-item">
-                    <div class="fin-label">Fun Factor</div>
-                    <div class="fin-value" style="color:var(--green)">Very High</div>
-                    <div class="fin-note">You'll enjoy building this</div>
+                    <div class="fin-label">Regulatory Risk</div>
+                    <div class="fin-value" style="color:var(--green)">Near Zero</div>
+                    <div class="fin-note">No payments, no fintech</div>
                 </div>
             </div>
 
             <h4 style="color:var(--green);margin:1rem 0 0.5rem;">✅ What I Like</h4>
             <ul>
-                <li class="check"><strong>Dual revenue engine.</strong> B2C social creates the audience; B2B SaaS monetizes it. You're not dependent on consumers paying — courts pay because you deliver them customers with data they've never had</li>
+                <li class="check"><strong>Solo-use features kill the cold start problem.</strong> This is the single biggest improvement over v1 of this analysis. A player gets value from day one — training plans, fitness tracking, a shareable FIFA card — without needing anyone else on the platform. The social layer becomes the upgrade, not the entry barrier</li>
+                <li class="check"><strong>AI agents are a genuinely differentiated B2B product.</strong> No competitor in the Colombian cancha space has this. The demo sells itself: show a court owner their WhatsApp questions being answered in real time by an AI. "¿Cuánto me cuesta?" → $70/month. Done</li>
+                <li class="check"><strong>Zero regulatory risk.</strong> By not processing payments, you've eliminated fintech compliance, Superfinanciera oversight, and the court owner's biggest objection ("you're taking a cut"). Clean SaaS, clean margins</li>
                 <li class="check"><strong>The FIFA card is pure viral gold.</strong> In a country where futbol is religion, giving every casual player a professional-looking skill card they can share is the kind of hook that spreads organically</li>
-                <li class="check"><strong>Low capital, high skill ceiling.</strong> This is a perfect senior engineer project — technically interesting (rating algorithms, real-time systems, payment integration) without being operationally heavy</li>
                 <li class="check"><strong>World Cup timing is a gift.</strong> Launching a futbol app in June 2026 during the World Cup in the Americas is as good as timing gets</li>
-                <li class="check"><strong>The data asset compounds.</strong> Every day you run, your moat gets deeper. After 18 months, you have something no competitor can replicate without years of effort</li>
+                <li class="check"><strong>Triple moat: AI + Data + Network.</strong> AI agent quality improves with usage data. Player profiles compound. Network effects lock in both sides. After 12 months, this is very hard to displace</li>
             </ul>
 
             <h4 style="color:var(--red);margin:1rem 0 0.5rem;">❌ What Worries Me</h4>
             <ul>
-                <li class="risk"><strong>Longer time to revenue than RemesaStack or CoproTech.</strong> You're looking at 6-9 months before meaningful revenue, vs 3-4 months for a pure SaaS play. Cash flow patience required</li>
-                <li class="risk"><strong>Cold start is real.</strong> If you can't get 200 active players in one barrio within the first 2 months, the social features feel dead and the whole thing stalls</li>
-                <li class="risk"><strong>In-person sales required for courts.</strong> You can't fully remote this. You (or someone) needs to walk into courts, shake hands, and demo the product</li>
-                <li class="risk"><strong>WhatsApp inertia is massive.</strong> Never underestimate how hard it is to change a habit that "works fine"</li>
+                <li class="risk"><strong>AI reliability at the edge.</strong> If the scheduler agent tells someone there's a slot when there isn't, you burn trust with the court owner — your paying customer. The agent needs to be right 99%+ of the time</li>
+                <li class="risk"><strong>In-person sales still required for courts.</strong> You can't fully remote this. You (or someone) needs to walk into courts, shake hands, and demo the AI live</li>
+                <li class="risk"><strong>LLM costs could squeeze margins.</strong> At high volumes, the per-conversation cost of running AI agents matters. Keep a tight eye on this — use smaller models where possible, cache common responses</li>
+                <li class="risk"><strong>The solo-to-social transition is a funnel you need to optimize.</strong> Getting users from "I track my own stats" to "I invite my friends and log matches together" is a conversion challenge. If that funnel leaks, you have a fitness app, not a social platform</li>
             </ul>
 
             <div class="verdict verdict-green" style="margin-top:1.5rem;">
-                <strong>🎙 Donna's Take:</strong> This is a <strong>strong 71</strong>. It's not the fastest path to $10K/month — that's still RemesaStack (75) for pure speed. But CanchaScore has something the others don't: <strong>it could become a real company</strong>. The network effects, the data moat, the two-sided market — these are the building blocks of something worth significantly more than $10K/month if you nail the execution.<br><br>
-                If you're building this to generate lifestyle income, it'll get there in 12-15 months. If you're building this because the idea excites you and you want optionality for something bigger — this is the one I'd pick. The World Cup timing alone is worth starting now.<br><br>
-                <strong>My recommendation:</strong> Build RemesaStack for the money. Build CanchaScore for the legacy. Or build CanchaScore and survive the first 6 lean months with freelance income. Your call, Dave.
+                <strong>🎙 Donna's Take:</strong> This went from a <strong>71 to a 76</strong> with three changes, and that's saying something. Dropping payments removed complexity and regulatory risk without hurting revenue (you actually charge MORE because AI agents justify higher prices). Solo-use features solve the existential cold-start threat. And AI agents give you a B2B product that no Colombian competitor can match right now.<br><br>
+                This is now <strong>tied with RemesaStack (75) for the top spot</strong>, and arguably has higher long-term upside. The path to $7-8K/month is clear: 130 courts paying an average of $65/month. In a country with 5,000+ courts, that's 2.6% market penetration. Very achievable.<br><br>
+                <strong>My recommendation:</strong> If the idea of building AI agents that talk to colombian cancheros on WhatsApp at 2am makes you grin — this is your project, Dave. Start building the solo player MVP now, launch the player app during the World Cup in June, and start selling AI agents to courts by July. You could be cash-flow positive by month 5.
             </div>
         </div>
     </div>
 
     <div class="disclaimer">
-        <p>This analysis represents an opinionated assessment based on publicly available market data as of March 2026.<br>
+        <p>This analysis represents an opinionated assessment based on publicly available market data as of March 8, 2026.<br>
         Exchange rate used: 1 USD ≈ 3,795 COP. All financial projections are estimates, not guarantees.<br>
         Court counts are estimates based on directory data and industry reports; no official census exists.<br>
         Built by Donna Paulsen for Dave. Yes, I know what futbol 5 is. I contain multitudes.</p>
