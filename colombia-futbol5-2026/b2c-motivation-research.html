@@ -178,6 +178,62 @@
         </div>
     </div>
 
+    <!-- ==================== THE TWO PAINS THAT ACTUALLY HURT ==================== -->
+    <h2>🩸 The Two Pains That Actually Hurt (From Real Experience)</h2>
+
+    <div class="section">
+        <p>Beyond identity and status, there are two <strong>pragmatic pain points</strong> that every piquera organizer lives with weekly. These aren't theoretical — they're the reason organizers burn out and groups die:</p>
+
+        <h3>🔇 Pain #1: The WhatsApp Group Is Muted — And The Game Message Gets Lost</h3>
+        <p>Here's the reality of every futbol 5 WhatsApp group in Colombia:</p>
+        <ul>
+            <li class="bad">The group has 30-50 people, but only 10-15 play regularly</li>
+            <li class="bad">The other 20-35 share memes, forward chain messages, talk about the liga, argue about politics, share TikToks — <strong>constant spam that has nothing to do with the game</strong></li>
+            <li class="bad">The organizer sends "¿Quién va el jueves?" once a week. That message gets buried under 50+ spam messages within hours</li>
+            <li class="bad"><strong>Most players have the group muted.</strong> They never see the organizing message. They miss the game not because they didn't want to play, but because they didn't see the invitation</li>
+            <li class="bad">The organizer has to personally message people who didn't respond: "Parce, ¿viste el mensaje? ¿Vas o no vas?" — multiplied by 10-15 people every single week</li>
+            <li class="bad">By Thursday morning, the organizer still doesn't know if they have 10 players. They scramble to fill spots via individual WhatsApp messages. Sometimes the game gets cancelled because they couldn't confirm enough people in time</li>
+        </ul>
+
+        <div class="callout callout-green">
+            <strong>What CanchaScore does:</strong> The Matchday Organizer sends each player a <strong>direct, personal notification</strong> — not buried in a group chat. A clean, one-tap RSVP: "Thursday 7pm at Cancha Los Pinos. ¿Vas? ✅ Sí / ❌ No." The organizer sees confirmed spots in real-time on a visual board. No spam, no chasing, no messages lost in a muted group. And the best part: players who don't have the app can RSVP via a simple web link shared on WhatsApp — the invite works everywhere, the chaos stays out.
+        </div>
+
+        <h3>💸 Pain #2: The Organizer Is An Unpaid Debt Collector</h3>
+        <p>The second pain is financial — and it's the reason most organizers eventually quit:</p>
+        <ul>
+            <li class="bad"><strong>The organizer pays the court upfront</strong> (or guarantees payment). Then they have to collect from each player: "Son 20 mil cada uno, me los pasan por Nequi"</li>
+            <li class="bad"><strong>3-4 people always "forget" to pay.</strong> The organizer is left chasing: "Parcero, me debes de la semana pasada y de esta." Awkward. Exhausting. Friendship-straining</li>
+            <li class="bad"><strong>When someone doesn't show up, the remaining players absorb the cost.</strong> 10 players expected, 8 show up, everyone pays 25% more. Unfair and infuriating</li>
+            <li class="bad"><strong>The organizer becomes the group's accountant.</strong> Tracking who paid, who owes, who has credit from last time. All in their head or a messy note</li>
+            <li class="bad"><strong>Cash vs Nequi split creates confusion.</strong> Some pay cash at the court, some Nequi to the organizer, some "I'll pay you next week." Zero visibility</li>
+        </ul>
+
+        <div class="callout callout-green">
+            <strong>What CanchaScore does:</strong> When a matchday is created, each confirmed player gets a <strong>payment request with a Nequi/Daviplata link for their exact share</strong>. The app tracks who paid and who hasn't — visible to everyone. No chasing. No awkward conversations. The organizer sees a simple board: "8/10 paid, 2 pending (Carlos, Andrés)." Peer pressure does the rest — when everyone can see who hasn't paid, people pay fast.<br><br>
+            <strong>Critical design decision:</strong> CanchaScore does NOT process the payments itself. It generates payment requests (via Wompi payment links or direct Nequi deeplinks) that go straight to the organizer's account or the court's account. The app is a <strong>tracking and nudging layer</strong>, not a payment processor. This keeps us out of fintech regulation entirely while solving 90% of the collection pain.
+        </div>
+    </div>
+
+    <div class="section">
+        <h3>Why These Two Pains Change The Product</h3>
+        <p>The previous version of this analysis focused only on identity, status, and social features. Those are the <em>retention</em> drivers — what keeps people opening the app. But the organizing and payment pains are the <strong>adoption</strong> drivers — what makes someone download the app in the first place.</p>
+
+        <div class="versus">
+            <div class="vs-card">
+                <div class="vs-title" style="color:var(--purple);">Identity Features (Retention)</div>
+                <p style="font-size:0.85rem;">"I keep using the app because my player card, my stats, and my crew history are here. It's my futbol identity."</p>
+            </div>
+            <div class="vs-card">
+                <div class="vs-title" style="color:var(--green);">Organizer Tools (Adoption)</div>
+                <p style="font-size:0.85rem;">"I downloaded the app because organizing games in WhatsApp was killing me. The RSVP system and payment tracking saved my sanity."</p>
+            </div>
+        </div>
+
+        <p><strong>The ideal user journey is:</strong> Organizer discovers app to solve their coordination pain → invites crew → crew uses RSVP + payment tracking (immediate utility) → after a few matches, everyone has player cards and stats (identity hook kicks in) → retention becomes self-sustaining.</p>
+        <p style="margin-top:0.5rem;">This means the <strong>primary marketing target is not "players" — it's "organizers."</strong> There are ~400,000 piquera groups in Colombia (estimated from court and player numbers). Each one has 1 organizer who is suffering. Find them, solve their pain, and the crew follows.</p>
+    </div>
+
     <!-- ==================== THE REAL FEATURE SET ==================== -->
     <h2>🛠 The Features That Actually Matter (Rewritten)</h2>
 
@@ -185,6 +241,21 @@
         <p>Based on the motivation research, here's what the B2C app should <em>actually</em> look like. Organized by motivation driver, not by product category:</p>
 
         <h3>🔥 Tier 1: The Core Loop (Build First, This Is The App)</h3>
+
+        <h4>The Matchday Organizer — "Never chase RSVPs again"</h4>
+        <p>This is now Tier 1, not Tier 2. It's the <strong>primary adoption driver</strong> — the reason the organizer downloads the app:</p>
+        <ul>
+            <li class="key"><strong>Create matchday:</strong> Date, time, court (free text or select from directory), number of spots, cost per player</li>
+            <li class="key"><strong>One-tap invites:</strong> Select crew members or share a WhatsApp link. Each player gets a personal notification (push + WhatsApp): "Thursday 7pm — Cancha Los Pinos — $20,000 COP. ¿Vas? ✅/❌"</li>
+            <li class="key"><strong>Real-time RSVP board:</strong> Visual grid showing who's confirmed, who's pending, who declined. Visible to everyone in the crew. Social pressure fills spots without the organizer chasing</li>
+            <li class="key"><strong>No-app RSVP:</strong> Friends without the app can respond via a web link. But they see everyone else's player cards when they click — FOMO drives downloads</li>
+            <li class="key"><strong>Payment tracking:</strong> Each confirmed player gets a payment request — Nequi deeplink or Wompi payment link for their exact share. The app shows who's paid and who hasn't. Everyone can see it. No chasing needed</li>
+            <li class="key"><strong>Auto-reminders:</strong> "Carlos, tomorrow's game is confirmed (9/10 players). You haven't paid yet — tap here to send $20,000 COP." Sent 24h before the game</li>
+            <li class="key"><strong>No-show protection:</strong> If someone confirms and doesn't show (and didn't pay), their reliability score drops. Visible on their profile. "87% attendance rate" vs "52% attendance rate" — organizers will think twice before inviting flakers</li>
+        </ul>
+        <div class="callout callout-green">
+            <strong>Why this changes distribution:</strong> The organizer is now the primary acquisition channel, not the player. Every piquera has ONE person who suffers through the WhatsApp chaos every week. Solve their pain, and they become your evangelist — dragging their entire 10-15 person crew onto the app. Target 1,000 organizers and you have 10,000-15,000 players.
+        </div>
 
         <h4>The Match Card — "If it's not on CanchaScore, it didn't happen"</h4>
         <p>After every match, one player creates the match card (takes 60 seconds):</p>
@@ -236,13 +307,12 @@
             <li class="key">Designed for WhatsApp/Instagram sharing. This is free weekly organic marketing that users <em>want</em> to share because it's about them</li>
         </ul>
 
-        <h4>The Matchday Organizer — "¿Quién va el jueves?"</h4>
-        <p>This doesn't replace WhatsApp. It plugs INTO WhatsApp:</p>
+        <h4>Auto-Balanced Teams — "No more stacked squads"</h4>
+        <p>Once 10 people confirm a matchday, the app suggests balanced teams based on skill ratings. This is a <em>real pain point</em> that makes every game more fun:</p>
         <ul>
-            <li class="key"><strong>Create a matchday from the app</strong> — date, time, court, spots available</li>
-            <li class="key"><strong>Generate a WhatsApp-shareable link</strong> — one tap to join/confirm. Friends don't need the app to RSVP (web form). But they see everyone else's player cards and stats when they click — FOMO drives downloads</li>
-            <li class="key"><strong>Visual RSVP board:</strong> Shows who's confirmed with their skill cards. "We have 8 confirmed, need 2 more. Current team average skill: 67." This is useful and shareable</li>
-            <li class="key"><strong>Auto-balanced teams:</strong> Once 10 people confirm, the app suggests balanced teams based on skill ratings. "No more stacked squads" is a real pain point that makes every game more fun</li>
+            <li class="key">Algorithm considers each player's overall rating + position preferences</li>
+            <li class="key">Shows predicted "team strength" for both sides so everyone agrees it's fair</li>
+            <li class="key">Shareable team card: "Team A (avg 68) vs Team B (avg 67) — looking balanced 🔥"</li>
         </ul>
     </div>
 
@@ -263,9 +333,13 @@
     <div class="section">
         <p>Here's how the app inserts itself into the natural weekly rhythm of a futbol 5 player:</p>
 
-        <h4>📅 Tuesday/Wednesday — Organize</h4>
-        <p>Someone creates a matchday in the app → shares the link in the WhatsApp group → friends RSVP → non-users see the preview page with player cards → FOMO triggers downloads.</p>
-        <p style="font-size:0.85rem;color:var(--text-muted);">App opens: 1 (creator) + clicks from group: 8-10. Time in app: 30 seconds.</p>
+        <h4>📅 Tuesday/Wednesday — Organize & Collect</h4>
+        <p>Organizer creates a matchday → each player gets a personal RSVP notification (not lost in group spam) → players confirm with one tap → confirmed players get a payment request (Nequi deeplink for their share) → organizer watches the RSVP board and payment tracker fill up in real time.</p>
+        <p style="font-size:0.85rem;color:var(--text-muted);">App opens: 1 (creator) + 10-12 (RSVP + payment). Time in app: 30-60 seconds each. <strong>Pain solved: no more chasing RSVPs or payments.</strong></p>
+
+        <h4>💰 Wednesday/Thursday — Payment Nudge</h4>
+        <p>Auto-reminder to unpaid players: "Tomorrow's game is confirmed. You haven't paid yet — tap here." The payment board is visible to everyone. Social pressure does the work. By game time, 8/10 have paid.</p>
+        <p style="font-size:0.85rem;color:var(--text-muted);">App opens: 2-4 (unpaid players). Time in app: 15 seconds. Emotional trigger: social accountability.</p>
 
         <h4>⚽ Thursday — Play</h4>
         <p>The game happens. The app does nothing during the game. It waits.</p>
@@ -307,23 +381,24 @@
                 </ul>
             </div>
             <div class="vs-card">
-                <div class="vs-title" style="color:var(--green);">✓ New approach (crew-first)</div>
+                <div class="vs-title" style="color:var(--green);">✓ New approach (organizer-first)</div>
                 <ul>
-                    <li class="good">One enthusiast downloads</li>
-                    <li class="good">Logs their match, invites 9 friends to vote</li>
-                    <li class="good">3-5 friends download to see their cards</li>
-                    <li class="good">Next match, those 3-5 create the card</li>
+                    <li class="good">Organizer is tired of WhatsApp chaos</li>
+                    <li class="good">Creates matchday, sends RSVP + payment links</li>
+                    <li class="good">Players RSVP (some via web, some download app)</li>
+                    <li class="good">After game, match card + MVP voting happens</li>
+                    <li class="good">Players see their cards, want more → fully engaged</li>
                     <li class="good">Entire crew is active in 2-3 weeks</li>
                 </ul>
             </div>
         </div>
 
-        <p><strong>The growth model is crew-to-crew, not user-to-user.</strong> One person in a friend group becomes the "CanchaScore guy." They log matches, share cards, talk about it. Their enthusiasm is contagious within the crew — because the app literally makes their shared experience more fun. Then someone in that crew also plays with ANOTHER group on Tuesdays. They bring CanchaScore to that group. And it spreads.</p>
+        <p><strong>The growth model is organizer-to-organizer, not user-to-user.</strong> The organizer discovers CanchaScore because they're fed up with WhatsApp chaos and collecting money. They use the matchday organizer once. It works. Their 10-15 person crew gets pulled in. Then one of those players is ALSO an organizer for a different Tuesday group. They bring CanchaScore to that group. And it spreads.</p>
 
-        <p style="margin-top:1rem;">This is exactly how WhatsApp grew. Not through advertising. Through one person in every friend group saying "let's move to WhatsApp." CanchaScore's growth vector is the same: one enthusiast per crew.</p>
+        <p style="margin-top:1rem;">This is exactly how WhatsApp grew. Not through advertising. Through one person in every friend group saying "let's move to WhatsApp." CanchaScore's growth vector is the same: one frustrated organizer per crew.</p>
 
         <div class="callout callout-purple">
-            <strong>Target for launch:</strong> Don't chase 10,000 users. Chase <strong>20 active crews in one barrio</strong>. That's ~200 active players, logging ~40 matches per week, generating ~40 shareable match cards. That's density. That's when the app feels alive, and word-of-mouth kicks in.
+            <strong>Target for launch:</strong> Don't chase 10,000 users. Chase <strong>30-40 organizers in one barrio</strong>. Each organizer brings 10-15 players. That's 300-600 active players, 30-40 matchdays per week, generating match cards and payment flows. That's density. That's when word-of-mouth kicks in. And the organizer is easy to find — post in any futbol 5 WhatsApp community or Facebook group: "Tired of chasing RSVPs and payments? This app does it for you."
         </div>
     </div>
 
@@ -333,20 +408,23 @@
     <div class="section">
         <p>The hardest moment is getting someone to install the app. Research on viral content sharing (NFX, 2022) shows people share content that enhances their social status. Here are the realistic first-download triggers:</p>
 
-        <h4>Trigger 1: "My friend shared their player card and I want mine"</h4>
-        <p>The shareable player card is designed for Instagram stories / WhatsApp status. When someone sees their friend's card with a gold frame, 78 matches, and a "Top 10% defense in Chapinero" badge — they want one. But you can only get one by playing and being rated. <strong>The card is a social status symbol that can't be bought or faked.</strong></p>
+        <h4>Trigger 1 (Organizers): "I'm done being the WhatsApp debt collector"</h4>
+        <p>The organizer discovers CanchaScore because they're exhausted from chasing RSVPs and collecting money. This is a <strong>pain-driven download</strong> — the strongest kind. They're not exploring, they're desperate. The pitch: "Create a matchday in 2 minutes. Everyone gets an RSVP and payment link. You never chase anyone again." <strong>This is the primary acquisition channel.</strong></p>
 
-        <h4>Trigger 2: "I got tagged in a match and want to see my votes"</h4>
-        <p>The match organizer tags players by phone number. Non-users get an SMS/WhatsApp message: "You were voted MVP in Thursday's match! See your skill ratings →" with a link to a web preview. The preview shows their votes but requires download to unlock the full profile. Classic product-led growth.</p>
+        <h4>Trigger 2 (Players): "The organizer sent me an RSVP and I need to respond"</h4>
+        <p>Players get a personal WhatsApp message: "Thursday 7pm — Cancha Los Pinos. ¿Vas? Tap here." They can RSVP via web without the app — but the preview page shows player cards, skill ratings, and the crew's stats. FOMO drives downloads: "Everyone has a player card except me."</p>
 
-        <h4>Trigger 3: "The matchday organizer link looked cool"</h4>
-        <p>When someone shares a matchday link in WhatsApp, the preview page shows confirmed players with their cards and skill ratings. Non-users see this and think "I want a card like that." The RSVP works without the app, but the card doesn't.</p>
+        <h4>Trigger 3 (Players): "I got voted MVP and want to see my card"</h4>
+        <p>After a match, non-users get a WhatsApp message: "You were voted MVP in Thursday's match! See your skill ratings →" The preview shows their votes but requires download to unlock the full profile. Classic product-led growth.</p>
 
-        <h4>Trigger 4: "We want balanced teams"</h4>
-        <p>This is the practical trigger. When your group is tired of one team always winning because the same 3 good players stack together, the auto-balanced team feature is a genuine solution. But it only works when everyone has skill ratings — which means everyone needs to be on the app.</p>
+        <h4>Trigger 4 (Players): "My friend shared their player card and I want mine"</h4>
+        <p>The shareable player card is designed for Instagram stories / WhatsApp status. A gold-framed card with 78 matches and "Top 15% in Chapinero" — that's a social status symbol that makes people want their own.</p>
+
+        <h4>Trigger 5 (Organizers): "We want balanced teams"</h4>
+        <p>When your group is tired of stacked squads, the auto-balanced team feature is genuinely useful. But it requires everyone to have skill ratings — which means everyone needs to be on the app and logging matches.</p>
 
         <div class="callout callout-orange">
-            <strong>Note on trigger quality:</strong> Triggers 1 and 2 are emotion-driven (status, curiosity). Triggers 3 and 4 are utility-driven (FOMO, practical). The emotional triggers are 3-5x more effective at driving installs than the utility ones. Invest design time accordingly.
+            <strong>Trigger priority:</strong> Triggers 1 and 2 are the PRIMARY growth engine — pain-driven for organizers, friction-driven for players. Triggers 3 and 4 are secondary — identity/status hooks that improve retention once people are on the platform. Trigger 5 is tertiary — only works after weeks of data accumulation. Invest accordingly.
         </div>
     </div>
 
@@ -374,9 +452,11 @@
                     <li class="good"><strong>MVP voting</strong> — THE engagement driver</li>
                     <li class="good"><strong>1-skill endorsement per vote</strong> — fast, meaningful</li>
                     <li class="good"><strong>Match card / match story</strong> — documentation & memory</li>
+                    <li class="good"><strong>Matchday organizer + RSVP system</strong> — THE adoption driver for organizers</li>
+                    <li class="good"><strong>Payment tracking (Nequi deeplinks)</strong> — solves the debt collector pain</li>
+                    <li class="good"><strong>Reliability score</strong> — accountability for no-shows</li>
                     <li class="good"><strong>Crews (Piqueras)</strong> — belonging & identity</li>
                     <li class="good"><strong>WhatsApp-native sharing</strong> — distribution channel</li>
-                    <li class="good"><strong>Matchday organizer + invite link</strong> — practical utility</li>
                     <li class="good"><strong>Weekly recap (Wrapped-style)</strong> — viral loop</li>
                     <li class="good"><strong>Auto-balanced teams</strong> — killer practical feature</li>
                 </ul>
@@ -390,35 +470,40 @@
     <div class="section">
         <h3>Build in 6 weeks. Launch during World Cup (June 2026).</h3>
 
-        <h4>Week 1-2: Match Card + MVP Voting</h4>
+        <h4>Week 1-2: Matchday Organizer + Payment Tracking (THE HOOK)</h4>
         <ul>
-            <li>Create match: date, court (free text), players (phone contacts), score</li>
-            <li>Post-match voting: MVP (1 vote) + 1 skill highlight per teammate (pick from: ⚽ Gol, 🎯 Pase, 🧱 Defensa, 🏃 Velocidad, 🧠 Visión, 🧤 Atajadas)</li>
-            <li>Match story card generated automatically (shareable image)</li>
+            <li>Create matchday: date, time, court (free text), spots, cost per player</li>
+            <li>RSVP system with personal notifications (push + WhatsApp link)</li>
+            <li>Visual RSVP board visible to all crew members</li>
+            <li>Payment tracking: generate Nequi deeplinks / Wompi payment links per player. Board shows paid/unpaid status</li>
+            <li>Auto-reminders for unpaid players 24h before game</li>
+            <li>No-app RSVP via web link for non-users</li>
         </ul>
 
-        <h4>Week 3-4: Player Card + Feed</h4>
+        <h4>Week 3-4: Match Card + MVP Voting + Player Card</h4>
         <ul>
+            <li>Post-match card creation: players, score, MVP vote, 1 skill endorsement per teammate</li>
+            <li>Match story card (shareable image)</li>
             <li>Player profile with FIFA-style radar built from real votes</li>
             <li>Card frame tiers: bronze (0-10 matches), silver (10-50), gold (50+)</li>
-            <li>Shareable card image with QR code</li>
-            <li>Feed showing recent match stories from your crew</li>
-            <li>Futbol-specific emoji reactions on match stories</li>
+            <li>Shareable player card image with QR code</li>
         </ul>
 
-        <h4>Week 5-6: Crews + Matchday Organizer</h4>
+        <h4>Week 5-6: Crews + Feed + Social</h4>
         <ul>
             <li>Create/join a crew (piquera). Crew profile with shared stats</li>
-            <li>Matchday creation with WhatsApp invite link</li>
-            <li>Web preview page for non-users (shows cards, RSVP without download)</li>
-            <li>Auto-balanced team suggestions</li>
+            <li>Feed showing recent match stories from your crew</li>
+            <li>Futbol-specific emoji reactions on match stories</li>
+            <li>Reliability score (attendance + payment track record)</li>
+            <li>Auto-balanced team suggestions based on skill ratings</li>
         </ul>
 
         <h4>Week 7-8: Polish + Weekly Recap</h4>
         <ul>
             <li>Monday weekly recap cards (personal + crew)</li>
             <li>Push notification for post-match voting window</li>
-            <li>Onboarding flow optimized for "invited by a friend" scenario</li>
+            <li>Onboarding flow optimized for "invited by organizer" scenario</li>
+            <li>Web preview page for non-users (shows cards, RSVP without download)</li>
         </ul>
 
         <div class="callout callout-green">
@@ -427,31 +512,39 @@
     </div>
 
     <!-- ==================== THE REAL RISK ==================== -->
-    <h2>⚠️ The One Risk That Still Kills This</h2>
+    <h2>⚠️ The Two Risks That Still Kill This</h2>
 
     <div class="section">
-        <p>After all this research, one risk remains existential and it hasn't changed:</p>
+        <h3 style="color:var(--red);">Risk 1: Will the organizer switch from WhatsApp to this?</h3>
 
-        <h3 style="color:var(--red);">Will the match creator actually log the match?</h3>
-
-        <p>The entire app depends on <strong>one person doing 60 seconds of data entry after every game.</strong> If that doesn't happen, nothing else works. No votes, no cards, no content, no sharing, no growth.</p>
-
-        <ul>
-            <li class="bad"><strong>Post-game fatigue is real.</strong> You just played an hour of intense futbol. You're sweaty, tired, heading home. Opening an app to log a match is the last thing on your mind</li>
-            <li class="bad"><strong>The "organizer burden" kills apps.</strong> If the same person always has to log the match, they'll eventually stop. "Why am I doing all the work?"</li>
-        </ul>
+        <p>The organizer currently suffers in WhatsApp — but it's <em>familiar</em> suffering. Convincing them to try a new tool requires the first experience to be dramatically better. If the RSVP system is clunky, if the payment links don't work with their Nequi, if it takes more than 2 minutes to set up a matchday — they'll go back to WhatsApp and never return.</p>
 
         <h4 style="color:var(--green);">Mitigations:</h4>
         <ul>
-            <li class="good"><strong>Make it stupidly fast.</strong> 4 taps: select crew → confirm players → enter score → done. Voting is a separate step by everyone. The creator's job is minimal</li>
-            <li class="good"><strong>Rotate the creator.</strong> The app suggests "Juan, it's your turn to log today's match." Social pressure + rotation prevents burnout</li>
-            <li class="good"><strong>Post-match push notification with a timer.</strong> "Log your match in the next 2 hours to unlock votes!" Creates urgency. After the window closes, the match can still be logged but voting engagement drops</li>
-            <li class="good"><strong>The MVP reveal is the reward.</strong> The creator gets to see who was voted MVP first. Small dopamine hit for doing the work</li>
-            <li class="good"><strong>Peer pressure.</strong> Once 3-4 people in the crew expect their votes and card updates, the social pressure to log the match is self-sustaining. "¿Nadie registró el partido? No me van a actualizar la carta"</li>
+            <li class="good"><strong>First matchday must take under 2 minutes to create.</strong> Pre-fill crew members, remember the court, default to last week's time. One-tap recurring games</li>
+            <li class="good"><strong>The app sends invites VIA WhatsApp.</strong> Players don't have to check a new app — the notification comes where they already live</li>
+            <li class="good"><strong>The payment board is the instant win.</strong> The first time an organizer sees "8/10 paid" without sending a single "¿me pasaste?" message, they're hooked</li>
+            <li class="good"><strong>Start with organizers you know personally.</strong> Your first 10 organizers should be friends or friends-of-friends. They'll forgive rough edges</li>
+        </ul>
+
+        <h3 style="color:var(--red);">Risk 2: Will people log the match afterward?</h3>
+
+        <p>The social features (cards, stats, MVP) depend on <strong>one person doing 60 seconds of data entry after every game.</strong> If that doesn't happen, no votes, no cards, no growth.</p>
+
+        <h4 style="color:var(--green);">Mitigations:</h4>
+        <ul>
+            <li class="good"><strong>Auto-create the match from the matchday.</strong> If a matchday was created and the time has passed, the app pre-fills a match card: "Your Thursday game just ended. Confirm the score and vote for MVP →" All the match creator has to do is enter the score and tap "Done." Players/teams are already populated from the RSVP list</li>
+            <li class="good"><strong>The organizer is already in the app.</strong> Because they used the matchday organizer before the game, they're already habituated. The post-match logging is a natural continuation, not a cold start</li>
+            <li class="good"><strong>MVP reveal is the reward.</strong> The creator sees MVP results first. The group gets notified: "MVP results are in! Open the app to see who won 👀"</li>
+            <li class="good"><strong>Peer pressure.</strong> "¿Nadie registró el partido? No me van a actualizar la carta" — this becomes self-sustaining once 3-4 people care about their stats</li>
         </ul>
 
         <div class="callout callout-red">
-            <strong>If post-match logging rate drops below 60% of games played, the app dies.</strong> This is the single metric that determines success or failure. Everything else — user growth, card shares, crew creation — is downstream of this one action. Obsess over it.
+            <strong>Key metrics to obsess over:</strong><br>
+            1. <strong>Matchday creation rate:</strong> What % of weekly games use the app's organizer? Target: >70% after 4 weeks per crew.<br>
+            2. <strong>Post-match logging rate:</strong> What % of matchdays convert to logged matches? Target: >60%.<br>
+            3. <strong>Payment completion rate:</strong> What % of players pay before game time? Target: >75%.<br>
+            If any of these drop below threshold, the corresponding feature isn't solving the pain well enough. Iterate.
         </div>
     </div>
 
