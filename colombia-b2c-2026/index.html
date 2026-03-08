@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colombia B2C App Opportunities 2026 — Brutal Analysis</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface-2: #1c2128;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-muted: #8b949e;
+            --text-bright: #f0f6fc;
+            --accent: #58a6ff;
+            --red: #f85149;
+            --orange: #d29922;
+            --green: #3fb950;
+            --purple: #bc8cff;
+            --pink: #f778ba;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: var(--text-bright);
+            margin-bottom: 0.5rem;
+        }
+
+        header .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header .meta {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.25rem;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-family: inherit;
+            white-space: nowrap;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--text);
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            color: var(--text-bright);
+            font-weight: 600;
+        }
+
+        .card-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Brutality Score */
+        .score-ring {
+            width: 56px;
+            height: 56px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .score-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .score-ring .bg {
+            stroke: var(--surface-2);
+        }
+
+        .score-ring .fill {
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .score-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-bright);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .comparison-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--surface);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-high { background: rgba(63, 185, 80, 0.15); color: var(--green); }
+        .badge-med { background: rgba(210, 153, 34, 0.15); color: var(--orange); }
+        .badge-low { background: rgba(248, 81, 73, 0.15); color: var(--red); }
+
+        /* Detail Pages */
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .detail-score {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .detail-score .score-value {
+            font-size: 1.2rem;
+        }
+
+        .detail-title {
+            font-size: 1.8rem;
+            color: var(--text-bright);
+        }
+
+        .detail-tagline {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            color: var(--text-bright);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title .icon {
+            font-size: 1.1rem;
+        }
+
+        .section p, .section li {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section ul li::before {
+            content: "→ ";
+            color: var(--accent);
+        }
+
+        .section ul li.risk::before {
+            content: "⚠ ";
+            color: var(--red);
+        }
+
+        .section ul li.opp::before {
+            content: "💰 ";
+        }
+
+        .financials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 0.75rem;
+        }
+
+        .fin-item {
+            background: var(--surface-2);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .fin-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .fin-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-top: 0.25rem;
+        }
+
+        .verdict {
+            background: var(--surface-2);
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            header h1 { font-size: 1.5rem; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .detail-header { flex-direction: column; text-align: center; }
+            .detail-title { font-size: 1.4rem; }
+            .comparison-table { font-size: 0.8rem; }
+            .comparison-table th, .comparison-table td { padding: 0.5rem; }
+            .tabs { gap: 0; }
+            .tab-btn { padding: 0.6rem 0.75rem; font-size: 0.8rem; }
+        }
+
+        .disclaimer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇨🇴 Colombia B2C App Opportunities 2026</h1>
+            <p class="subtitle">A brutally honest VC-grade analysis of the top 5 high-barrier app opportunities for a senior systems engineer targeting $5-10K USD/month net profit in Colombia.</p>
+            <p class="meta">Analysis Date: March 2026 &nbsp;|&nbsp; COP/USD: ~3,795 &nbsp;|&nbsp; Analyst: Donna Paulsen</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('dashboard')">📊 Dashboard</button>
+            <button class="tab-btn" onclick="showTab('idea1')">1. CoproTech</button>
+            <button class="tab-btn" onclick="showTab('idea2')">2. InformalOS</button>
+            <button class="tab-btn" onclick="showTab('idea3')">3. MediRuta</button>
+            <button class="tab-btn" onclick="showTab('idea4')">4. RuralExpress</button>
+            <button class="tab-btn" onclick="showTab('idea5')">5. RemesaStack</button>
+        </div>
+
+        <!-- ==================== DASHBOARD ==================== -->
+        <div id="dashboard" class="tab-content active">
+            <div class="dashboard-grid">
+                <!-- Card 1 -->
+                <div class="card" onclick="showTab('idea1')">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">CoproTech</div>
+                            <div class="card-subtitle">Propiedad Horizontal SaaS</div>
+                        </div>
+                        <div class="score-ring">
+                            <svg width="56" height="56" viewBox="0 0 56 56">
+                                <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke-width="4"/>
+                                <circle class="fill" cx="28" cy="28" r="24" fill="none" stroke="var(--green)" stroke-width="4" stroke-dasharray="150.8" stroke-dashoffset="30.16" stroke-linecap="round"/>
+                            </svg>
+                            <span class="score-value">72</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--text-muted)">B2C/B2B2C platform replacing Excel-and-WhatsApp building management for 300K+ copropiedades.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" onclick="showTab('idea2')">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">InformalOS</div>
+                            <div class="card-subtitle">Gig Worker Financial OS</div>
+                        </div>
+                        <div class="score-ring">
+                            <svg width="56" height="56" viewBox="0 0 56 56">
+                                <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke-width="4"/>
+                                <circle class="fill" cx="28" cy="28" r="24" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="150.8" stroke-dashoffset="45.24" stroke-linecap="round"/>
+                            </svg>
+                            <span class="score-value">58</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--text-muted)">Financial autopilot for 10M+ informal workers: PILA payments, micro-insurance, income tracking.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" onclick="showTab('idea3')">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">MediRuta</div>
+                            <div class="card-subtitle">EPS Navigation & Advocacy</div>
+                        </div>
+                        <div class="score-ring">
+                            <svg width="56" height="56" viewBox="0 0 56 56">
+                                <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke-width="4"/>
+                                <circle class="fill" cx="28" cy="28" r="24" fill="none" stroke="var(--green)" stroke-width="4" stroke-dasharray="150.8" stroke-dashoffset="24.13" stroke-linecap="round"/>
+                            </svg>
+                            <span class="score-value">68</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--text-muted)">AI-powered navigation layer for Colombia's hellish EPS system: appointment optimization, tutela automation, referral tracking.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card" onclick="showTab('idea4')">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">RuralExpress</div>
+                            <div class="card-subtitle">Tier-3 City Delivery Network</div>
+                        </div>
+                        <div class="score-ring">
+                            <svg width="56" height="56" viewBox="0 0 56 56">
+                                <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke-width="4"/>
+                                <circle class="fill" cx="28" cy="28" r="24" fill="none" stroke="var(--orange)" stroke-width="4" stroke-dasharray="150.8" stroke-dashoffset="52.78" stroke-linecap="round"/>
+                            </svg>
+                            <span class="score-value">52</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--text-muted)">Last-mile delivery orchestration for 500+ municipalities where Rappi/iFood don't exist.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="card" onclick="showTab('idea5')">
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">RemesaStack</div>
+                            <div class="card-subtitle">Freelancer FX & Billing</div>
+                        </div>
+                        <div class="score-ring">
+                            <svg width="56" height="56" viewBox="0 0 56 56">
+                                <circle class="bg" cx="28" cy="28" r="24" fill="none" stroke="var(--surface-2)" stroke-width="4"/>
+                                <circle class="fill" cx="28" cy="28" r="24" fill="none" stroke="var(--green)" stroke-width="4" stroke-dasharray="150.8" stroke-dashoffset="16.59" stroke-linecap="round"/>
+                            </svg>
+                            <span class="score-value">75</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.85rem;color:var(--text-muted)">All-in-one USD→COP conversion, DIAN-compliant invoicing, and tax optimization for remote workers.</p>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <h2 style="color:var(--text-bright);margin-bottom:1rem;font-size:1.2rem;">📋 Head-to-Head Comparison</h2>
+            <div style="overflow-x:auto;">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Idea</th>
+                        <th>Score</th>
+                        <th>Time to Revenue</th>
+                        <th>Monthly Target</th>
+                        <th>Capital Needed</th>
+                        <th>Execution Complexity</th>
+                        <th>Regulatory Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color:var(--text-bright);font-weight:600">RemesaStack</td>
+                        <td><span class="badge badge-high">75</span></td>
+                        <td>3-4 months</td>
+                        <td>$8-12K</td>
+                        <td>$2-5K</td>
+                        <td><span class="badge badge-med">Medium</span></td>
+                        <td><span class="badge badge-med">Medium</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright);font-weight:600">CoproTech</td>
+                        <td><span class="badge badge-high">72</span></td>
+                        <td>4-6 months</td>
+                        <td>$5-10K</td>
+                        <td>$1-3K</td>
+                        <td><span class="badge badge-med">Medium</span></td>
+                        <td><span class="badge badge-high">Low</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright);font-weight:600">MediRuta</td>
+                        <td><span class="badge badge-med">68</span></td>
+                        <td>5-8 months</td>
+                        <td>$5-8K</td>
+                        <td>$3-6K</td>
+                        <td><span class="badge badge-low">High</span></td>
+                        <td><span class="badge badge-low">High</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright);font-weight:600">InformalOS</td>
+                        <td><span class="badge badge-med">58</span></td>
+                        <td>6-10 months</td>
+                        <td>$5-10K</td>
+                        <td>$5-10K</td>
+                        <td><span class="badge badge-low">Very High</span></td>
+                        <td><span class="badge badge-low">Very High</span></td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text-bright);font-weight:600">RuralExpress</td>
+                        <td><span class="badge badge-med">52</span></td>
+                        <td>8-12 months</td>
+                        <td>$5-8K</td>
+                        <td>$10-20K</td>
+                        <td><span class="badge badge-low">Very High</span></td>
+                        <td><span class="badge badge-med">Medium</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="verdict" style="margin-top:2rem;">
+                <strong>VC Take:</strong> If you're a solo systems engineer who wants $5-10K/mo without raising capital or selling your soul, <strong>RemesaStack</strong> or <strong>CoproTech</strong> are your plays. Both solve real pain, both have clear revenue paths, and both can be built by one senior dev in 3-6 months. The others are real opportunities but need teams, capital, or regulatory patience you probably don't have yet.
+            </div>
+        </div>
+
+        <!-- ==================== IDEA 1: COPROTECH ==================== -->
+        <div id="idea1" class="tab-content">
+            <div class="detail-header">
+                <div class="detail-score">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--surface-2)" stroke-width="5"/>
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--green)" stroke-width="5" stroke-dasharray="213.6" stroke-dashoffset="59.8" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:center;"/>
+                    </svg>
+                    <span class="score-value">72</span>
+                </div>
+                <div>
+                    <h2 class="detail-title">CoproTech — Propiedad Horizontal SaaS</h2>
+                    <p class="detail-tagline">Kill the Excel spreadsheet that runs your building. Seriously.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">🎯</span> Market Need</h3>
+                <p>Colombia has <strong>300,000+ copropiedades</strong> (condos, gated communities, office buildings) governed by Ley 675. Most are managed by a single overwhelmed <em>administrador</em> using WhatsApp groups, Excel spreadsheets, and paper receipts. The pain is universal and visceral:</p>
+                <ul>
+                    <li>Residents have zero visibility into where their <strong>cuotas de administración</strong> go</li>
+                    <li>Collecting payments is a nightmare — 25-40% of buildings have chronic <em>morosos</em> (delinquent payers)</li>
+                    <li>Assembly meetings are chaotic, quorum is never reached, and decisions go undocumented</li>
+                    <li>Existing solutions (Kipo, Daytona, Properati) are either too enterprise or too basic — there's a massive mid-market gap</li>
+                </ul>
+                <p>The TAM is real: if even 10% of copropiedades paid $15-30 USD/month for management software, that's a $5-10M/year market <em>in Colombia alone</em>.</p>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💀</span> Execution Risk — Why This Will Fail</h3>
+                <ul>
+                    <li class="risk">Administradores are <strong>tech-resistant boomers</strong>. You're selling software to people who think a PDF is cutting-edge</li>
+                    <li class="risk"><strong>Sales cycle is painfully slow</strong> — requires assembly approval in most cases, and assemblies happen once a year</li>
+                    <li class="risk"><strong>Switching cost is emotional, not technical</strong>. The current admin has "their system" (a notebook) and you're threatening their control</li>
+                    <li class="risk">Payment collection integration with Colombian banks is a bureaucratic hellscape — PSE integration alone takes 2-4 months</li>
+                    <li class="risk">Low willingness to pay: Colombian copropiedades are notoriously stingy. Getting $30/month feels like pulling teeth</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💰</span> Financial Opportunity</h3>
+                <div class="financials">
+                    <div class="fin-item">
+                        <div class="fin-label">Target MRR</div>
+                        <div class="fin-value">$5-10K</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Price/Building</div>
+                        <div class="fin-value">$15-40/mo</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Buildings Needed</div>
+                        <div class="fin-value">250-650</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Initial Capital</div>
+                        <div class="fin-value">$1-3K</div>
+                    </div>
+                </div>
+                <ul style="margin-top:1rem;">
+                    <li class="opp"><strong>Monetization:</strong> SaaS subscription per building + transaction fees on payment collection (0.5-1.5% of cuotas)</li>
+                    <li class="opp"><strong>Expansion:</strong> Once you own the building, upsell insurance, maintenance marketplace, and vendor directory</li>
+                    <li class="opp"><strong>COP reality:</strong> At ~3,800 COP/USD, charging 60,000-150,000 COP/month per building is very palatable</li>
+                    <li class="opp"><strong>Retention:</strong> Once adopted, building management software is extremely sticky — switching costs are high</li>
+                </ul>
+                <div class="verdict">
+                    <strong>The play:</strong> Start with 5 buildings in your barrio. Do it free for 2 months. Prove the value. Then charge. The Bogotá market alone has 50,000+ copropiedades. You don't need scale — you need 400 buildings paying $20/month. That's $8K/mo, and you can do it with a React Native app and a Supabase backend.
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== IDEA 2: INFORMALOS ==================== -->
+        <div id="idea2" class="tab-content">
+            <div class="detail-header">
+                <div class="detail-score">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--surface-2)" stroke-width="5"/>
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--orange)" stroke-width="5" stroke-dasharray="213.6" stroke-dashoffset="89.7" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:center;"/>
+                    </svg>
+                    <span class="score-value">58</span>
+                </div>
+                <div>
+                    <h2 class="detail-title">InformalOS — Gig Worker Financial Autopilot</h2>
+                    <p class="detail-tagline">55.4% of Colombia's workforce is informal. Zero of them have a financial operating system.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">🎯</span> Market Need</h3>
+                <p>Colombia has <strong>12+ million informal workers</strong> (2024 OECD data: 55.4% of workforce). These are domiciliarios, vendedores ambulantes, peluqueros, mecánicos, freelance everything. Their financial reality:</p>
+                <ul>
+                    <li><strong>PILA payments are a nightmare.</strong> The government portal (Mi Seguridad Social) is a UX disaster — independientes routinely overpay, underpay, or miss deadlines</li>
+                    <li><strong>No income tracking.</strong> Cash-based earnings mean zero visibility into actual monthly income, making tax compliance impossible</li>
+                    <li><strong>No insurance access.</strong> Informal workers are locked out of traditional insurance products — no ARL, no life insurance, no nothing</li>
+                    <li><strong>The 2025 pension reform</strong> (Ley de pilares) creates new compliance obligations for independientes earning ≥1 SMMLV, but nobody understands it</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💀</span> Execution Risk — Why This Will Fail</h3>
+                <ul>
+                    <li class="risk"><strong>Your users can't pay you.</strong> The painful irony: the people who need this most have the least willingness/ability to pay for software</li>
+                    <li class="risk"><strong>Regulatory minefield.</strong> Anything touching PILA, pensions, or insurance requires licensing (UGPP oversight, Superfinanciera for insurance brokering)</li>
+                    <li class="risk"><strong>Trust deficit.</strong> Informal workers distrust financial apps. They've been burned by "too good to be true" schemes. Getting them to input real income data? Good luck</li>
+                    <li class="risk"><strong>Nequi and Daviplata already own the informal wallet.</strong> You're competing for the same phone screen real estate against banks with billions in marketing</li>
+                    <li class="risk"><strong>Unit economics are brutal.</strong> Free users with low ARPU in a market that requires heavy hand-holding and support</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💰</span> Financial Opportunity</h3>
+                <div class="financials">
+                    <div class="fin-item">
+                        <div class="fin-label">Target MRR</div>
+                        <div class="fin-value">$5-10K</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Revenue Model</div>
+                        <div class="fin-value">Freemium + %</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Users Needed (free)</div>
+                        <div class="fin-value">50K+</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Initial Capital</div>
+                        <div class="fin-value">$5-10K</div>
+                    </div>
+                </div>
+                <ul style="margin-top:1rem;">
+                    <li class="opp"><strong>Monetization:</strong> Transaction fee on automated PILA payments (1-2%), embedded micro-insurance commissions, premium tier for income analytics</li>
+                    <li class="opp"><strong>Scale:</strong> If you crack the trust problem, the TAM is enormous — 12M informal workers × $1-3/month = $12-36M/year</li>
+                    <li class="opp"><strong>Strategic value:</strong> The data you accumulate (real informal income data) is incredibly valuable for banks, insurers, and government</li>
+                </ul>
+                <div class="verdict">
+                    <strong>The play:</strong> This is a venture-scale opportunity, not a $5-10K/month lifestyle business. If you want that monthly target, you need ~50K active users with ~$0.15 ARPU — that's 12-18 months of grinding minimum. Possible, but not for a solo founder. Park this one unless you're ready to raise money and hire.
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== IDEA 3: MEDIRUTA ==================== -->
+        <div id="idea3" class="tab-content">
+            <div class="detail-header">
+                <div class="detail-score">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--surface-2)" stroke-width="5"/>
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--green)" stroke-width="5" stroke-dasharray="213.6" stroke-dashoffset="68.4" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:center;"/>
+                    </svg>
+                    <span class="score-value">68</span>
+                </div>
+                <div>
+                    <h2 class="detail-title">MediRuta — EPS Navigation & Advocacy Platform</h2>
+                    <p class="detail-tagline">The Colombian healthcare system is a labyrinth. This app is the Minotaur's GPS.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">🎯</span> Market Need</h3>
+                <p>Colombia's EPS system covers ~48 million people and is universally loathed. The pain points are systemic and deeply personal:</p>
+                <ul>
+                    <li><strong>Specialist appointments take 30-90 days</strong> in the contributive regime. People literally die waiting</li>
+                    <li><strong>The referral chain is a black box.</strong> Patients bounce between EPS, IPS, and specialists with zero tracking — papers get "lost," referrals expire, nobody knows what's happening</li>
+                    <li><strong>Tutelas (legal health actions) are the only recourse</strong> — Colombians file 240,000+ health-related tutelas per year. Most people don't know how to file one or that they can</li>
+                    <li><strong>Medication tracking is nonexistent.</strong> Patients manage complex drug regimens with zero digital support from their EPS</li>
+                    <li>The 2025 healthcare reform is creating even more confusion as EPS restructure and some collapse entirely</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💀</span> Execution Risk — Why This Will Fail</h3>
+                <ul>
+                    <li class="risk"><strong>EPS APIs don't exist.</strong> You'll be scraping portals, reverse-engineering appointment systems, and dealing with 15+ different EPS platforms, each one more broken than the last</li>
+                    <li class="risk"><strong>Health data regulation</strong> (Ley 1581/Habeas Data + MinSalud regulations) is strict. One breach and you're done</li>
+                    <li class="risk"><strong>EPS actively resist transparency.</strong> Your app's success means exposing their failures — they will try to block you</li>
+                    <li class="risk"><strong>Tutela automation is a legal gray zone.</strong> If you auto-generate legal documents, you might cross into unauthorized legal practice territory</li>
+                    <li class="risk"><strong>Monetizing healthcare navigation feels predatory.</strong> Charging people who can't get a doctor's appointment? Optics are rough</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💰</span> Financial Opportunity</h3>
+                <div class="financials">
+                    <div class="fin-item">
+                        <div class="fin-label">Target MRR</div>
+                        <div class="fin-value">$5-8K</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Revenue Model</div>
+                        <div class="fin-value">Freemium + B2B</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Paying Users Needed</div>
+                        <div class="fin-value">1K-3K</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Initial Capital</div>
+                        <div class="fin-value">$3-6K</div>
+                    </div>
+                </div>
+                <ul style="margin-top:1rem;">
+                    <li class="opp"><strong>B2C:</strong> Freemium model — free appointment tracking, paid tier ($2-5/month) for tutela assistance, priority alerts, and medication reminders</li>
+                    <li class="opp"><strong>B2B pivot:</strong> Sell the platform to prepagadas and seguros complementarios as a retention/engagement tool. This is where the real money is</li>
+                    <li class="opp"><strong>Referral fees:</strong> Partner with private clinics for overflow appointments — patients willing to pay out-of-pocket for faster care</li>
+                    <li class="opp"><strong>Scale:</strong> 48M EPS users, even 0.01% conversion = 4,800 paying users. At $3/mo that's $14.4K MRR</li>
+                </ul>
+                <div class="verdict">
+                    <strong>The play:</strong> Build the free tracker first — appointment dates, referral status, medication reminders. Get organic growth through sheer utility. Then monetize with the B2B angle (sell to medicina prepagada companies). The B2C revenue alone can hit your target, but B2B is the real margin play. Technical challenge is high — you're essentially building healthcare middleware for a system that doesn't want to be middleware'd.
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== IDEA 4: RURALEXPRESS ==================== -->
+        <div id="idea4" class="tab-content">
+            <div class="detail-header">
+                <div class="detail-score">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--surface-2)" stroke-width="5"/>
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--orange)" stroke-width="5" stroke-dasharray="213.6" stroke-dashoffset="102.5" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:center;"/>
+                    </svg>
+                    <span class="score-value">52</span>
+                </div>
+                <div>
+                    <h2 class="detail-title">RuralExpress — Tier-3 City Delivery Network</h2>
+                    <p class="detail-tagline">500+ Colombian municipalities have zero delivery infrastructure. That's a feature, not a bug.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">🎯</span> Market Need</h3>
+                <p>Colombia has 1,122 municipalities. Rappi operates in ~15. iFood/Didi in fewer. That leaves <strong>1,000+ towns</strong> with growing smartphone penetration and zero on-demand delivery. The last-mile market is growing at 10%+ CAGR:</p>
+                <ul>
+                    <li><strong>E-commerce penetration is rising</strong> but rural fulfillment is stuck in the 2010s — Servientrega/Coordinadora dominate with 3-7 day delivery windows</li>
+                    <li><strong>Local commerce is trapped.</strong> The restaurant in Quibdó or Sincelejo can't compete with Bogotá cloud kitchens because there's no delivery infra</li>
+                    <li><strong>Pharmacy and essentials delivery</strong> is non-existent in most tier-3 cities — huge unmet need for elderly and disabled populations</li>
+                    <li><strong>The motorcycle economy is already there.</strong> Every small town has mototaxistas with smartphones and no formal employment — instant fleet</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💀</span> Execution Risk — Why This Will Fail</h3>
+                <ul>
+                    <li class="risk"><strong>You can't scale this remotely.</strong> Each municipality needs local ops: onboarding restaurants, recruiting riders, managing cash. It's an ops business disguised as tech</li>
+                    <li class="risk"><strong>Order density is death.</strong> Tier-3 cities have 20K-100K people. Even with 5% adoption, you're looking at 20-50 orders/day. Unit economics barely work</li>
+                    <li class="risk"><strong>Rappi could enter any of these markets overnight</strong> if they become attractive enough — and they will outspend you 1000:1</li>
+                    <li class="risk"><strong>Cash dominance.</strong> In these markets, 60-80% of transactions are cash-based. You need cash-on-delivery infrastructure, which is a logistical nightmare</li>
+                    <li class="risk"><strong>Security concerns.</strong> Some tier-3 areas have complex security dynamics. Your rider carrying cash + a smartphone is a target</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💰</span> Financial Opportunity</h3>
+                <div class="financials">
+                    <div class="fin-item">
+                        <div class="fin-label">Target MRR</div>
+                        <div class="fin-value">$5-8K</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Revenue Model</div>
+                        <div class="fin-value">Commission 15-25%</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Cities Needed</div>
+                        <div class="fin-value">5-10</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Initial Capital</div>
+                        <div class="fin-value">$10-20K</div>
+                    </div>
+                </div>
+                <ul style="margin-top:1rem;">
+                    <li class="opp"><strong>Monetization:</strong> 15-25% commission per order + restaurant subscription for featured placement</li>
+                    <li class="opp"><strong>Math:</strong> 10 cities × 40 orders/day × $3 avg commission = $1,200/day = $36K/month gross. After ops costs (riders, support), net ~$8-12K</li>
+                    <li class="opp"><strong>Defensibility:</strong> First-mover advantage in small markets is real — once you own the local restaurant relationships, it's hard to displace</li>
+                </ul>
+                <div class="verdict">
+                    <strong>The play:</strong> This is a grind, not a hack. If you're from a smaller Colombian city and have local connections, it could work. But for a remote systems engineer? The ops overhead kills it. You'd need local managers in each city at $300-500/month each. Not impossible at $5-10K/mo net, but it's tight and fragile. Better suited for someone with a co-founder in the region.
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== IDEA 5: REMESASTACK ==================== -->
+        <div id="idea5" class="tab-content">
+            <div class="detail-header">
+                <div class="detail-score">
+                    <svg width="80" height="80" viewBox="0 0 80 80">
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--surface-2)" stroke-width="5"/>
+                        <circle cx="40" cy="40" r="34" fill="none" stroke="var(--green)" stroke-width="5" stroke-dasharray="213.6" stroke-dashoffset="53.4" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:center;"/>
+                    </svg>
+                    <span class="score-value">75</span>
+                </div>
+                <div>
+                    <h2 class="detail-title">RemesaStack — Freelancer FX & Billing OS</h2>
+                    <p class="detail-tagline">200,000+ Colombian freelancers earn in USD and lose 3-8% converting it. Every. Single. Month.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">🎯</span> Market Need</h3>
+                <p>Colombia's remote work revolution is real. An estimated <strong>200,000+ Colombians</strong> earn USD through platforms like Upwork, Toptal, Deel, and direct contracts. Their financial stack is broken:</p>
+                <ul>
+                    <li><strong>FX spread robbery.</strong> Banks charge 3-5% on USD→COP conversion. Even Wise takes 1-2%. For someone earning $3K/month, that's $60-150 lost monthly</li>
+                    <li><strong>DIAN compliance is a maze.</strong> Freelancers must issue electronic invoices (factura electrónica), file IVA, report foreign income, and handle retención en la fuente — most just... don't</li>
+                    <li><strong>Double taxation risk.</strong> Without proper estructura tributaria, freelancers overpay or face DIAN audits. The 2023 tax reform made this worse</li>
+                    <li><strong>No single tool connects FX + invoicing + tax.</strong> They juggle Wise + a contadora + Excel + DIAN portal + their bank. It's 5 systems doing what 1 should</li>
+                    <li><strong>The "persona natural vs SAS" decision</strong> paralyzes people for months. Everyone needs guidance, nobody can get it without paying $200/hour to a tax attorney</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💀</span> Execution Risk — Why This Will Fail</h3>
+                <ul>
+                    <li class="risk"><strong>Regulatory complexity is extreme.</strong> Handling money movement (even as a referral layer) puts you in Superfinanciera's crosshairs. Full SEDPE or SEI licensing costs $100K+</li>
+                    <li class="risk"><strong>Wise, Payoneer, and Remitly are entrenched.</strong> You can't beat them on FX rates. Your value-add has to be the Colombian layer on top</li>
+                    <li class="risk"><strong>Tax advisory liability.</strong> If your app recommends a tax structure and the DIAN audits the user, you're potentially liable. Need very careful disclaimers</li>
+                    <li class="risk"><strong>Market ceiling.</strong> 200K freelancers sounds big, but the addressable segment (earning enough to care about optimization) is maybe 50-80K</li>
+                    <li class="risk"><strong>Contadoras are the competition.</strong> Every freelancer already has a contadora charging 150,000-300,000 COP/month. Your app needs to replace OR complement them</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title"><span class="icon">💰</span> Financial Opportunity</h3>
+                <div class="financials">
+                    <div class="fin-item">
+                        <div class="fin-label">Target MRR</div>
+                        <div class="fin-value">$8-12K</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Price/User</div>
+                        <div class="fin-value">$10-25/mo</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Paying Users Needed</div>
+                        <div class="fin-value">400-1,200</div>
+                    </div>
+                    <div class="fin-item">
+                        <div class="fin-label">Initial Capital</div>
+                        <div class="fin-value">$2-5K</div>
+                    </div>
+                </div>
+                <ul style="margin-top:1rem;">
+                    <li class="opp"><strong>Core revenue:</strong> SaaS subscription — $10-25/month for automated DIAN invoicing, tax calendar, and income tracking</li>
+                    <li class="opp"><strong>FX arbitrage layer:</strong> Partner with a licensed FX provider (not be one) and take a referral cut (0.1-0.3% of volume). Even modest volume generates thousands</li>
+                    <li class="opp"><strong>Contadora marketplace:</strong> Connect users with vetted accountants and take a 15-20% referral fee on the first year</li>
+                    <li class="opp"><strong>Tax filing upsell:</strong> Charge $30-50 for guided annual tax filing (declaración de renta) — 80K+ potential buyers once/year</li>
+                    <li class="opp"><strong>COP reality:</strong> $15/month = ~57,000 COP. Compare that to a contadora at 200,000 COP. The value prop is obvious</li>
+                </ul>
+                <div class="verdict">
+                    <strong>The play:</strong> This is your best bet. You ARE the target user — a systems engineer earning USD in Colombia. Build what you need, then productize it. Start with the DIAN invoicing module (it's the sharpest pain point), add income tracking, then layer in FX comparison and tax guidance. You can have 100 paying users in 3 months by posting in a single Colombian freelancer Facebook group. The path to $10K/month is: 600 users × $17/month average. Very achievable in 6-9 months with solid execution.
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <p>This analysis represents an opinionated assessment based on publicly available market data as of March 2026.<br>
+            Exchange rate used: 1 USD ≈ 3,795 COP. All financial projections are estimates, not guarantees.<br>
+            Built by Donna Paulsen for Dave. Don't steal my homework.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            // Find the matching button
+            const tabs = document.querySelectorAll('.tab-btn');
+            const tabMap = { 'dashboard': 0, 'idea1': 1, 'idea2': 2, 'idea3': 3, 'idea4': 4, 'idea5': 5 };
+            if (tabMap[tabId] !== undefined) {
+                tabs[tabMap[tabId]].classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
